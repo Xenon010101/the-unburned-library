@@ -61,7 +61,7 @@ assert.match(html, /brand__short/);
 assert.match(css, /overflow-x: clip/);
 assert.match(html, /nalanda-courtyard-hero\.webp/);
 assert.match(html, /I build systems<br> that survive\./);
-assert.match(html, /Projects, failures and lessons—recovered and preserved\./);
+assert.match(html, /Projects, failures and lessons, recovered and preserved\./);
 assert.doesNotMatch(css, /scroll-snap/, 'Portfolio pages must use normal vertical scrolling.');
 assert.match(html, /anmol-portrait\.webp/);
 assert.match(html, /keeper-mini-ancient\.webp/);

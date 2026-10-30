@@ -7,25 +7,26 @@ Verified on 30 October 2026 (Asia/Calcutta).
 - App name: `the-unburned-library`
 - App ID: `d38i1t194jgpzt`
 - Branch: `production`
-- Initial deployment job: `1` — `SUCCEED` (11:42:50–11:42:53 IST)
-- Evidence-update job: `2` — `SUCCEED` (11:48:21–11:48:30 IST)
-- Verified-contact job: `3` — `SUCCEED` (11:55:47–11:55:56 IST)
-- About-transition job: `4` — `SUCCEED` (15:46:37–15:46:46 IST)
-- Skills-instrument job: `5` — `SUCCEED` (16:00:23–16:00:32 IST)
-- Projects-archive job: `6` — `SUCCEED` (16:30:03–16:30:12 IST)
-- Projects-motion-fix job: `7` — `SUCCEED` (16:41:40–16:41:49 IST)
-- Architecture-evidence job: `8` — `SUCCEED` (16:58:44–16:58:53 IST)
-- Architecture-baseline-label job: `9` — `SUCCEED` (17:00:29–17:00:38 IST)
-- Empty deployment reservations: jobs `10` and `11` — `CANCELLED` before upload or start
-- Official-AWS-icons job: `12` — `SUCCEED` (17:24:48–17:24:57 IST)
-- Contact-correspondence job: `13` — `SUCCEED` (17:50:02–17:50:11 IST)
-- Homepage-accessibility job: `14` — `SUCCEED` (22:32:56–22:33:05 IST)
-- Homepage-focus-return job: `15` — `SUCCEED` (22:37:42–22:37:51 IST)
-- About-mobile-overflow job: `16` — `SUCCEED` (23:00:39–23:00:49 IST)
-- Production-release job: `17` — `SUCCEED` (09:57:29–09:57:38 IST)
-- WebGL-cuboid job: `18` — `SUCCEED` (17:03:25–17:03:34 IST)
-- Hero-copy job: `19` — `SUCCEED` (17:24:30–17:24:39 IST)
-- Responsive-copy-fix job: `20` — `SUCCEED` (17:29:56–17:30:05 IST)
+- Initial deployment job: `1`: `SUCCEED` (11:42:50–11:42:53 IST)
+- Evidence-update job: `2`: `SUCCEED` (11:48:21–11:48:30 IST)
+- Verified-contact job: `3`: `SUCCEED` (11:55:47–11:55:56 IST)
+- About-transition job: `4`: `SUCCEED` (15:46:37–15:46:46 IST)
+- Skills-instrument job: `5`: `SUCCEED` (16:00:23–16:00:32 IST)
+- Projects-archive job: `6`: `SUCCEED` (16:30:03–16:30:12 IST)
+- Projects-motion-fix job: `7`: `SUCCEED` (16:41:40–16:41:49 IST)
+- Architecture-evidence job: `8`: `SUCCEED` (16:58:44–16:58:53 IST)
+- Architecture-baseline-label job: `9`: `SUCCEED` (17:00:29–17:00:38 IST)
+- Empty deployment reservations: jobs `10` and `11`: `CANCELLED` before upload or start
+- Official-AWS-icons job: `12`: `SUCCEED` (17:24:48–17:24:57 IST)
+- Contact-correspondence job: `13`: `SUCCEED` (17:50:02–17:50:11 IST)
+- Homepage-accessibility job: `14`: `SUCCEED` (22:32:56–22:33:05 IST)
+- Homepage-focus-return job: `15`: `SUCCEED` (22:37:42–22:37:51 IST)
+- About-mobile-overflow job: `16`: `SUCCEED` (23:00:39–23:00:49 IST)
+- Production-release job: `17`: `SUCCEED` (09:57:29–09:57:38 IST)
+- WebGL-cuboid job: `18`: `SUCCEED` (17:03:25–17:03:34 IST)
+- Hero-copy job: `19`: `SUCCEED` (17:24:30–17:24:39 IST)
+- Responsive-copy-fix job: `20`: `SUCCEED` (17:29:56–17:30:05 IST)
+- Em-dash-removal job: `21`: `SUCCEED` (17:43:16–17:43:25 IST)
 - Live URL: https://production.d38i1t194jgpzt.amplifyapp.com/
 - Public verification: Architecture page loaded with all five local official AWS SVGs at non-zero intrinsic dimensions; the Contact page preserved all three verified destinations and fit its desk and portrait inside the 430px viewport with no horizontal overflow
 - Homepage verification: at 430×932, changing reduced motion 120ms into the brick recovery opened the record immediately; Escape closed it, re-enabled the brick and returned focus to the exact trigger with no horizontal overflow
@@ -33,6 +34,7 @@ Verified on 30 October 2026 (Asia/Calcutta).
 - Production-release verification: the live homepage exposed the rebuilt archive sections, opened the illuminated Keeper manuscript dialog, and produced no browser console errors
 - WebGL-cuboid verification: Chrome loaded the Three.js canvas, hid the CSS fallback, rendered the brick as an extruded and beveled cuboid, completed the recovery interaction, opened the record dialog, reset the trigger after close, and produced no browser console warnings or errors
 - Hero-copy verification: the live 1440×900 and 390×844 layouts render the shortened headline and supporting line without horizontal overflow; the homepage sections and all six standalone pages retain normal content-driven vertical scrolling with no scroll snapping
+- Copy verification: the live homepage, all six standalone pages and the FocusTube interaction script contain no em-dash characters
 
 The deployment contains 38 production files in a 2.22 MB ZIP. It includes the pinned Three.js 0.180.0 browser modules and an accessible CSS cuboid fallback. It excludes local tests, QA screenshots, browser profiles, source notes, design references, development dependencies and superseded high-resolution PNG assets. There is no deployed backend, database, authentication service, Lambda function, API Gateway or Bedrock integration.
 
