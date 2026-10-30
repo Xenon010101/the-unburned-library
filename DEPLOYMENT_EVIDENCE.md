@@ -23,13 +23,15 @@ Verified on 30 October 2026 (Asia/Calcutta).
 - Homepage-focus-return job: `15` — `SUCCEED` (22:37:42–22:37:51 IST)
 - About-mobile-overflow job: `16` — `SUCCEED` (23:00:39–23:00:49 IST)
 - Production-release job: `17` — `SUCCEED` (09:57:29–09:57:38 IST)
+- WebGL-cuboid job: `18` — `SUCCEED` (17:03:25–17:03:34 IST)
 - Live URL: https://production.d38i1t194jgpzt.amplifyapp.com/
 - Public verification: Architecture page loaded with all five local official AWS SVGs at non-zero intrinsic dimensions; the Contact page preserved all three verified destinations and fit its desk and portrait inside the 430px viewport with no horizontal overflow
 - Homepage verification: at 430×932, changing reduced motion 120ms into the brick recovery opened the record immediately; Escape closed it, re-enabled the brick and returned focus to the exact trigger with no horizontal overflow
 - About verification: at 390×932 and 430×932, the live page had zero horizontal overflow, retained one visible left-side journey connector per card, loaded every image and returned HTTP 200
 - Production-release verification: the live homepage exposed the rebuilt archive sections, opened the illuminated Keeper manuscript dialog, and produced no browser console errors
+- WebGL-cuboid verification: Chrome loaded the Three.js canvas, hid the CSS fallback, rendered the brick as an extruded and beveled cuboid, completed the recovery interaction, opened the record dialog, reset the trigger after close, and produced no browser console warnings or errors
 
-The deployment contains 35 production files in a 2.03 MB ZIP. It excludes local tests, QA screenshots, browser profiles, source notes, design references, development dependencies and superseded high-resolution PNG assets. There is no deployed backend, database, authentication service, Lambda function, API Gateway or Bedrock integration.
+The deployment contains 38 production files in a 2.22 MB ZIP. It includes the pinned Three.js 0.180.0 browser modules and an accessible CSS cuboid fallback. It excludes local tests, QA screenshots, browser profiles, source notes, design references, development dependencies and superseded high-resolution PNG assets. There is no deployed backend, database, authentication service, Lambda function, API Gateway or Bedrock integration.
 
 ## Repeatable update flow
 
