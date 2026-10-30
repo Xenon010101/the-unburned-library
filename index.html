@@ -8,9 +8,10 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <title>The Unburned Library — Anmol Patel</title>
   <link rel="preload" href="assets/nalanda-courtyard-hero.webp" as="image" type="image/webp" fetchpriority="high">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20261030-cuboid">
   <script src="assets/vendor/gsap-3.15.0.min.js" defer></script>
-  <script src="script.js" defer></script>
+  <script src="script.js?v=20261030-cuboid" defer></script>
+  <script type="module" src="brick-3d.js?v=20261030-cuboid3"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -56,8 +57,10 @@
       <div class="brick-stage" aria-label="Interactive conservation wall" data-brick-stage>
         <p class="brick-stage__callout" data-brick-callout>Press the glowing brick to recover record 01.</p>
         <p class="brick-stage__cavity" aria-hidden="true" data-brick-cavity><span>What broke</span>The interface kept rebuilding itself.</p>
+        <span class="brick-stage__cast-shadow" aria-hidden="true"></span>
         <span class="brick-stage__dust" aria-hidden="true" data-brick-dust></span>
         <button class="recover-brick" type="button" aria-label="Recover FocusTube record 01" aria-controls="focus-record" aria-describedby="brick-instruction" data-brick>
+          <span class="brick-webgl" aria-hidden="true" data-brick-webgl></span>
           <span class="brick-cuboid" aria-hidden="true">
             <span class="brick-face brick-face--front"><span class="recover-brick__face"><b>FocusTube</b><small>Recovered record 01</small></span></span>
             <span class="brick-face brick-face--back"></span>

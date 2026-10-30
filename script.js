@@ -56,12 +56,14 @@ const openRecord = (event) => {
   setBrickStatus('Recovering record 01 from the conservation wall.');
 
   if (!animation || reducedMotion.matches) {
+    window.brick3D?.recover({ mobile: window.matchMedia('(max-width: 620px)').matches, reduced: reducedMotion.matches });
     window.setTimeout(showRecord, reducedMotion.matches ? 80 : 1450);
     return;
   }
 
   const mobile = window.matchMedia('(max-width: 620px)').matches;
   const xPercent = mobile ? 50 : 0;
+  const webglBrick = window.brick3D;
   recoveryTimeline?.kill();
   recoveryTimeline = animation.timeline({
     defaults: { ease: 'power2.out' },
@@ -70,6 +72,18 @@ const openRecord = (event) => {
 
   if (brickCallout) {
     recoveryTimeline.to(brickCallout, { autoAlpha: 0, y: -8, duration: .2 });
+  }
+
+  if (webglBrick) {
+    webglBrick.recover({ mobile });
+    const clock = { progress: 0 };
+    recoveryTimeline
+      .to(brickCavity, { autoAlpha: 1, scale: .98, duration: .22 }, .34)
+      .to(brickDust, { autoAlpha: .85, scale: 1.18, rotation: 4, duration: .2 }, '<')
+      .to(brickTray, { autoAlpha: 1, y: 0, duration: .28 }, '<.04')
+      .to(clock, { progress: 1, duration: .95, ease: 'none' }, .34)
+      .to(brickDust, { autoAlpha: 0, duration: .24 }, '-=.24');
+    return;
   }
 
   recoveryTimeline
@@ -89,19 +103,31 @@ const openRecord = (event) => {
     .to(brickDust, { autoAlpha: .85, scale: 1.18, rotation: 4, duration: .2 }, '<')
     .to(brickTray, { autoAlpha: 1, y: 0, duration: .28 }, '<.04')
     .to(brick, {
+      x: mobile ? 0 : -18,
+      xPercent,
+      y: mobile ? 88 : 102,
+      z: 124,
+      rotationX: 58,
+      rotationY: -12,
+      rotationZ: 7,
+      scale: 1.01,
+      duration: .34,
+      ease: 'power1.in'
+    })
+    .to(brick, {
       x: mobile ? 0 : 24,
       xPercent,
       y: mobile ? 180 : 210,
       z: 34,
-      rotationX: 76,
-      rotationY: 18,
-      rotationZ: 10,
+      rotationX: 150,
+      rotationY: 14,
+      rotationZ: 6,
       scale: .98,
-      duration: .62,
+      duration: .32,
       ease: 'power2.in'
     })
-    .to(brick, { y: mobile ? 168 : 198, rotationX: 69, duration: .14, ease: 'power2.out' })
-    .to(brick, { y: mobile ? 180 : 210, rotationX: 76, duration: .11, ease: 'power1.in' })
+    .to(brick, { y: mobile ? 168 : 198, z: 42, rotationX: 142, duration: .14, ease: 'power2.out' })
+    .to(brick, { y: mobile ? 180 : 210, z: 34, rotationX: 150, duration: .11, ease: 'power1.in' })
     .to(brickDust, { autoAlpha: 0, duration: .28 }, '-=.3');
 };
 
@@ -112,6 +138,7 @@ reducedMotion.addEventListener('change', (event) => {
   if (animation) {
     animation.set([brick, brickCallout, brickCavity, brickDust, brickTray].filter(Boolean), { clearProps: 'all' });
   }
+  window.brick3D?.recover({ mobile: window.matchMedia('(max-width: 620px)').matches, reduced: true });
   showRecord();
 });
 
@@ -128,6 +155,7 @@ recordDialog?.addEventListener('close', () => {
   if (animation) {
     animation.set([brick, brickCallout, brickCavity, brickDust, brickTray, folio].filter(Boolean), { clearProps: 'all' });
   }
+  window.brick3D?.reset();
   recoveryTrigger?.focus();
   recoveryTrigger = undefined;
 });

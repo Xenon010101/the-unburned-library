@@ -1,6 +1,6 @@
 # The Unburned Library
 
-A static implementation of Anmol Patel's AWS portfolio concept. GSAP 3.15.0 is pinned in `package.json` and self-hosted from `assets/vendor` so the deployed page does not rely on a third-party CDN.
+A static implementation of Anmol Patel's AWS portfolio concept. GSAP 3.15.0 and Three.js 0.180.0 are pinned in `package.json` and self-hosted from `assets/vendor` so the deployed page does not rely on a third-party CDN. The recoverable homepage brick uses real WebGL geometry with an accessible CSS cuboid fallback.
 
 ## Preview locally
 

@@ -69,29 +69,35 @@ img { max-width: 100%; display: block; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2rem; }
 .context-note { max-width: 520px; margin-top: 1.5rem; color: var(--muted); font-size: .82rem; }
 
-.brick-stage { --brick-width: 260px; --brick-height: 113px; --brick-depth: 70px; position: absolute; z-index: 2; top: 38%; right: max(4vw, calc((100% - 1320px) / 2)); width: min(36vw, 520px); height: 47%; perspective: 1100px; transform-style: preserve-3d; pointer-events: none; }
+.brick-stage { --brick-width: 260px; --brick-height: 113px; --brick-depth: 108px; position: absolute; z-index: 2; top: 38%; right: max(4vw, calc((100% - 1320px) / 2)); width: min(36vw, 520px); height: 47%; perspective: 740px; perspective-origin: 76% 22%; transform-style: preserve-3d; pointer-events: none; }
 .brick-stage__callout { position: absolute; top: -2.2rem; right: 0; width: 200px; padding: .7rem .9rem; color: var(--ivory); background: rgba(16, 11, 8, .78); border: 1px solid var(--line); border-radius: 10px; font-size: .85rem; }
 .brick-stage__callout::after { content: ""; position: absolute; top: 100%; left: 45%; width: 1px; height: 50px; background: var(--gold); transform: rotate(24deg); transform-origin: top; }
-.recover-brick { pointer-events: auto; position: absolute; z-index: 3; top: 24%; right: 5%; width: var(--brick-width); height: var(--brick-height); padding: 0; border: 0; color: var(--ivory); background: transparent; cursor: pointer; transform-style: preserve-3d; transform-origin: 50% 50%; will-change: transform; }
+.recover-brick { pointer-events: auto; position: absolute; z-index: 3; top: 24%; right: 5%; width: var(--brick-width); height: var(--brick-height); padding: 0; border: 0; color: var(--ivory); background: transparent; cursor: pointer; transform-style: preserve-3d; transform-origin: 50% 50% calc(var(--brick-depth) / -2); will-change: transform; }
 .recover-brick:disabled { cursor: progress; }
-.brick-cuboid { position: absolute; inset: 0; display: block; transform: rotateX(-15deg) rotateY(-22deg); transform-style: preserve-3d; transform-origin: 50% 50%; pointer-events: none; filter: drop-shadow(16px 20px 19px rgba(0,0,0,.5)); transition: transform .28s ease, filter .28s ease; }
-.brick-face { position: absolute; display: grid; place-items: center; overflow: hidden; border: 2px solid rgba(230,184,95,.58); backface-visibility: hidden; }
-.brick-face--front, .brick-face--back { inset: 0; border-radius: 6px; }
-.brick-face--front { background: linear-gradient(154deg, rgba(255,193,115,.18), transparent 24%), radial-gradient(ellipse at 22% 32%, #9e5030 0 4%, transparent 18%), radial-gradient(ellipse at 76% 68%, #34170f 0 3%, transparent 20%), linear-gradient(150deg, #873e24 0%, #512517 44%, #2b160f 100%); box-shadow: 0 0 0 5px rgba(230,184,95,.1), 0 0 30px rgba(230,184,95,.44), inset 14px 12px 25px rgba(255,216,121,.12), inset -18px -14px 25px rgba(0,0,0,.48); transform: translateZ(calc(var(--brick-depth) / 2)); }
-.brick-face--front::before { content: ""; position: absolute; inset: 7%; opacity: .44; background: radial-gradient(circle at 20% 30%, #d18a54 0 2px, transparent 3px), radial-gradient(circle at 70% 60%, #d18a54 0 2px, transparent 3px), linear-gradient(103deg, transparent 0 47%, rgba(21,9,6,.42) 48% 49%, transparent 50%); background-size: 24px 18px, 31px 23px, 100% 100%; }
-.brick-face--front::after { content: ""; position: absolute; inset: 4px; border: 1px solid rgba(255,218,139,.2); clip-path: polygon(0 7%, 4% 2%, 18% 0, 34% 3%, 57% 0, 78% 2%, 95% 0, 100% 7%, 98% 28%, 100% 49%, 97% 73%, 100% 92%, 94% 100%, 70% 98%, 52% 100%, 27% 97%, 7% 100%, 0 92%, 2% 66%, 0 42%, 3% 20%); }
+.brick-webgl { position: absolute; z-index: 4; top: 50%; left: 50%; width: clamp(390px, 34vw, 520px); height: clamp(245px, 22vw, 330px); pointer-events: none; transform: translate(-50%, -50%); }
+.brick-webgl canvas { display: block; width: 100%; height: 100%; filter: drop-shadow(18px 23px 20px rgba(0,0,0,.42)); }
+.hero.has-webgl-brick .brick-cuboid { visibility: hidden; opacity: 0; }
+.hero.has-webgl-brick .brick-stage__cast-shadow { visibility: hidden; opacity: 0; }
+.brick-cuboid { position: absolute; inset: 0; display: block; transform: translateZ(20px) rotateX(-22deg) rotateY(-41deg); transform-style: preserve-3d; transform-origin: 50% 50%; pointer-events: none; filter: drop-shadow(28px 30px 24px rgba(0,0,0,.62)); transition: transform .28s ease, filter .28s ease; will-change: transform; }
+.brick-face { position: absolute; display: grid; place-items: center; overflow: hidden; border: 0; backface-visibility: hidden; box-shadow: inset 0 0 0 3px rgba(34,13,8,.36); }
+.brick-face--front, .brick-face--back { inset: 0; border-radius: 3px; }
+.brick-face--front { background: linear-gradient(145deg, rgba(255,204,130,.18), transparent 22% 68%, rgba(15,6,4,.36)), radial-gradient(ellipse at 20% 28%, #a95734 0 4%, transparent 17%), radial-gradient(ellipse at 76% 70%, #30130c 0 3%, transparent 19%), linear-gradient(150deg, #984727 0%, #642b19 44%, #32160f 100%); box-shadow: 0 0 23px rgba(230,184,95,.24), inset 9px 8px 0 rgba(224,129,76,.24), inset -11px -10px 0 rgba(28,10,6,.4), inset 17px 16px 28px rgba(255,216,121,.08), inset -20px -18px 28px rgba(0,0,0,.52); transform: translateZ(calc(var(--brick-depth) / 2)); }
+.brick-face--front::before { content: ""; position: absolute; inset: 6%; opacity: .58; background: radial-gradient(circle at 20% 30%, #e39a61 0 2px, transparent 3px), radial-gradient(circle at 70% 60%, #d18a54 0 2px, transparent 3px), radial-gradient(circle at 44% 78%, #25100a 0 1px, transparent 3px), linear-gradient(103deg, transparent 0 47%, rgba(21,9,6,.55) 48% 49%, transparent 50%); background-size: 24px 18px, 31px 23px, 19px 27px, 100% 100%; }
+.brick-face--front::after { content: ""; position: absolute; inset: 4px; background: linear-gradient(112deg, rgba(255,232,185,.13), transparent 24% 76%, rgba(0,0,0,.2)); box-shadow: inset 2px 2px 0 rgba(246,174,111,.2), inset -3px -3px 0 rgba(20,7,4,.38); clip-path: polygon(0 7%, 4% 2%, 18% 0, 34% 3%, 57% 0, 78% 2%, 95% 0, 100% 7%, 98% 28%, 100% 49%, 97% 73%, 100% 92%, 94% 100%, 70% 98%, 52% 100%, 27% 97%, 7% 100%, 0 92%, 2% 66%, 0 42%, 3% 20%); }
 .brick-face--back { background: #25110b; transform: rotateY(180deg) translateZ(calc(var(--brick-depth) / 2)); }
-.brick-face--right, .brick-face--left { top: 0; left: 50%; width: var(--brick-depth); height: 100%; margin-left: calc(var(--brick-depth) / -2); background: repeating-linear-gradient(180deg, rgba(255,216,121,.09) 0 2px, transparent 2px 17px), linear-gradient(90deg, #32150d, #9a4a2a); box-shadow: inset 8px 0 16px rgba(255,216,121,.14), inset -10px 0 18px rgba(0,0,0,.48); }
+.brick-face--right, .brick-face--left { top: 0; left: 50%; width: var(--brick-depth); height: 100%; margin-left: calc(var(--brick-depth) / -2); background: radial-gradient(circle at 68% 30%, rgba(226,145,91,.22) 0 2px, transparent 3px), repeating-linear-gradient(180deg, rgba(255,216,121,.09) 0 2px, transparent 2px 17px), linear-gradient(90deg, #2b110a 0%, #71311d 42%, #a9512e 100%); background-size: 27px 23px, 100% 100%, 100% 100%; box-shadow: inset 9px 0 15px rgba(0,0,0,.36), inset -7px 0 13px rgba(255,201,124,.16); }
 .brick-face--right { transform: rotateY(90deg) translateZ(calc(var(--brick-width) / 2)); }
-.brick-face--left { transform: rotateY(-90deg) translateZ(calc(var(--brick-width) / 2)); }
-.brick-face--top, .brick-face--bottom { top: 50%; left: 0; width: 100%; height: var(--brick-depth); margin-top: calc(var(--brick-depth) / -2); background: radial-gradient(circle at 20% 45%, rgba(255,204,134,.2) 0 2px, transparent 3px), linear-gradient(#bd6540, #582719); background-size: 33px 21px, 100% 100%; box-shadow: inset 0 8px 16px rgba(255,216,121,.18), inset 0 -10px 18px rgba(0,0,0,.44); }
+.brick-face--left { background: radial-gradient(circle at 35% 28%, rgba(255,209,151,.26) 0 2px, transparent 4px), repeating-linear-gradient(178deg, rgba(255,222,166,.08) 0 2px, transparent 2px 19px), linear-gradient(90deg, #b75a35 0%, #78331e 46%, #37150d 100%); background-size: 31px 25px, 100% 100%, 100% 100%; transform: rotateY(-90deg) translateZ(calc(var(--brick-width) / 2)); }
+.brick-face--top, .brick-face--bottom { top: 50%; left: 0; width: 100%; height: var(--brick-depth); margin-top: calc(var(--brick-depth) / -2); background: radial-gradient(circle at 20% 45%, rgba(255,224,175,.28) 0 2px, transparent 3px), radial-gradient(circle at 78% 64%, rgba(57,19,10,.46) 0 2px, transparent 4px), linear-gradient(#c76a3f, #622819); background-size: 33px 21px, 41px 29px, 100% 100%; box-shadow: inset 0 8px 16px rgba(255,216,121,.2), inset 0 -12px 19px rgba(0,0,0,.46); }
 .brick-face--top { transform: rotateX(90deg) translateZ(calc(var(--brick-height) / 2)); }
 .brick-face--bottom { transform: rotateX(-90deg) translateZ(calc(var(--brick-height) / 2)); }
-.recover-brick__face { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .15rem; font-size: .82rem; letter-spacing: .08em; }
-.recover-brick__face b { font-family: var(--display); font-size: 1.25rem; font-weight: 500; letter-spacing: .02em; }
-.recover-brick__face small { color: var(--gold-bright); font-size: .64rem; text-transform: uppercase; }
-.recover-brick:hover .brick-cuboid { transform: rotateX(-18deg) rotateY(-25deg) translateZ(8px); filter: drop-shadow(18px 23px 20px rgba(0,0,0,.54)); }
-.recover-brick:hover .brick-face--front { box-shadow: 0 0 0 7px rgba(230,184,95,.18), 0 0 45px rgba(230,184,95,.65), inset 12px 10px 26px rgba(255,216,121,.13), inset -14px -12px 24px rgba(0,0,0,.42); }
+.recover-brick__face { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; justify-self: stretch; align-self: stretch; gap: .08rem; padding: 0 0 1.25rem 1.45rem; color: #e2aa6e; font-size: .78rem; letter-spacing: .08em; text-shadow: 1px 1px 0 rgba(244,177,111,.18), -1px -1px 0 #281009; }
+.recover-brick__face b { font-family: var(--display); font-size: 1.08rem; font-weight: 500; letter-spacing: .025em; }
+.recover-brick__face small { color: #bd7848; font-size: .56rem; text-transform: uppercase; }
+.recover-brick:hover .brick-cuboid { transform: translateZ(34px) rotateX(-25deg) rotateY(-47deg); filter: drop-shadow(34px 36px 25px rgba(0,0,0,.68)); }
+.recover-brick:hover .brick-face--front { box-shadow: 0 0 32px rgba(230,184,95,.38), inset 10px 9px 0 rgba(224,129,76,.28), inset -12px -11px 0 rgba(28,10,6,.42), inset 18px 17px 30px rgba(255,216,121,.1), inset -21px -19px 30px rgba(0,0,0,.5); }
+.brick-stage__cast-shadow { position: absolute; z-index: 2; top: calc(24% + 29px); right: calc(5% - 36px); width: var(--brick-width); height: var(--brick-height); border-radius: 6px; background: rgba(4,2,1,.62); box-shadow: 29px 31px 28px 10px rgba(0,0,0,.48); transform: skewY(-4deg) scale(.93); transform-origin: 50% 50%; opacity: .82; transition: transform .42s ease, opacity .42s ease; }
+.hero.is-recovering .brick-stage__cast-shadow { opacity: 0; transform: translate3d(-18px,20px,0) skewY(-3deg) scale(.78); }
 .brick-stage__cavity { position: absolute; z-index: 1; top: 24%; right: 5%; width: var(--brick-width); height: var(--brick-height); margin: 0; display: grid; place-content: center; padding: 1rem; color: var(--limestone); background: radial-gradient(circle at 50% 50%, #29170e, #080604 72%); border: 1px solid #5f3c26; box-shadow: inset 0 0 34px rgba(0,0,0,.9), 0 0 30px rgba(230,184,95,.18); text-align: center; opacity: 0; }
 .brick-stage__cavity span { display: block; color: var(--gold); font-size: .72rem; }
 .brick-stage__dust { position: absolute; z-index: 2; top: 17%; right: -1%; width: 330px; height: 180px; opacity: 0; background: radial-gradient(circle at 18% 55%, rgba(255,200,119,.72) 0 2px, transparent 3px), radial-gradient(circle at 38% 24%, rgba(230,184,95,.5) 0 1px, transparent 2px), radial-gradient(circle at 61% 68%, rgba(255,216,121,.66) 0 2px, transparent 3px), radial-gradient(circle at 84% 35%, rgba(230,184,95,.46) 0 1px, transparent 2px); background-size: 43px 37px, 29px 31px, 54px 41px, 35px 47px; filter: blur(.2px); transform: scale(.72); transform-origin: center; will-change: transform, opacity; }
@@ -231,8 +237,9 @@ dialog::backdrop { background: rgba(5,3,2,.82); backdrop-filter: blur(5px); }
 
 @keyframes brick-recover {
   0% { transform: translate3d(0,0,0) rotateX(0) rotateY(0); }
-  42% { transform: translate3d(-55px,0,90px) rotateX(-18deg) rotateY(24deg); }
-  100% { transform: translate3d(30px,210px,40px) rotateX(76deg) rotateY(18deg) rotateZ(10deg); }
+  38% { transform: translate3d(-55px,0,90px) rotateX(-18deg) rotateY(24deg); }
+  68% { transform: translate3d(-18px,102px,124px) rotateX(58deg) rotateY(-12deg) rotateZ(7deg); }
+  100% { transform: translate3d(30px,210px,40px) rotateX(150deg) rotateY(14deg) rotateZ(6deg); }
 }
 @keyframes cavity-reveal { to { opacity: 1; } }
 @keyframes tray-reveal { to { opacity: 1; transform: none; } }
@@ -252,8 +259,9 @@ dialog::backdrop { background: rgba(5,3,2,.82); backdrop-filter: blur(5px); }
   .hero__content { padding-top: 7.5rem; padding-bottom: 0; }
   .hero h1 { font-size: clamp(3.2rem, 13vw, 5.8rem); max-width: 700px; }
   .hero__lede { max-width: 560px; }
-  .brick-stage { --brick-width: min(62vw, 300px); --brick-height: min(27vw, 130px); --brick-depth: 44px; top: 55%; right: 1rem; left: 1rem; width: auto; height: 38%; }
+  .brick-stage { --brick-width: min(62vw, 300px); --brick-height: min(27vw, 130px); --brick-depth: 74px; top: 55%; right: 1rem; left: 1rem; width: auto; height: 38%; }
   .recover-brick, .brick-stage__cavity { right: 6%; }
+  .brick-webgl { width: min(112vw, 500px); height: min(72vw, 320px); }
   .brick-stage__callout { display: none; }
   .brick-stage__tray { right: 4%; }
   .keeper-launch { bottom: .8rem; right: .8rem; }
@@ -283,8 +291,11 @@ dialog::backdrop { background: rgba(5,3,2,.82); backdrop-filter: blur(5px); }
   .hero__actions { display: grid; }
   .button { width: 100%; }
   .context-note { font-size: .72rem; }
-  .brick-stage { --brick-width: min(78vw, 320px); --brick-height: min(34vw, 139px); --brick-depth: 40px; top: 61%; }
+  .brick-stage { --brick-width: min(78vw, 320px); --brick-height: min(34vw, 139px); --brick-depth: 66px; top: 61%; }
   .recover-brick, .brick-stage__cavity { right: 50%; transform: translateX(50%); }
+  .brick-webgl { width: min(126vw, 480px); height: min(82vw, 310px); }
+  .brick-stage__cast-shadow { right: calc(50% - 28px); transform: translateX(50%) skewY(-3deg) scale(.96); }
+  .hero.is-recovering .brick-stage__cast-shadow { transform: translateX(50%) translate3d(-18px,20px,0) skewY(-3deg) scale(.78); }
   .hero.is-recovering:not(.has-gsap) .recover-brick { animation: brick-recover-mobile 1.2s cubic-bezier(.45,.05,.2,1) forwards; }
   .brick-stage__tray { right: 50%; transform: translate(50%, 30px); width: 280px; }
   .hero.is-recovering:not(.has-gsap) .brick-stage__tray { animation: tray-reveal-mobile .35s .55s forwards; }
@@ -323,8 +334,9 @@ dialog::backdrop { background: rgba(5,3,2,.82); backdrop-filter: blur(5px); }
 
 @keyframes brick-recover-mobile {
   0% { transform: translateX(50%) translate3d(0,0,0) rotateX(0) rotateY(0); }
-  45% { transform: translateX(50%) translate3d(0,-15px,80px) rotateX(-18deg) rotateY(24deg); }
-  100% { transform: translateX(50%) translate3d(0,180px,30px) rotateX(76deg) rotateY(18deg) rotateZ(10deg); }
+  38% { transform: translateX(50%) translate3d(0,-15px,80px) rotateX(-18deg) rotateY(24deg); }
+  68% { transform: translateX(50%) translate3d(0,88px,108px) rotateX(58deg) rotateY(-12deg) rotateZ(7deg); }
+  100% { transform: translateX(50%) translate3d(0,180px,30px) rotateX(150deg) rotateY(14deg) rotateZ(6deg); }
 }
 @keyframes tray-reveal-mobile { to { opacity: 1; transform: translate(50%, 0); } }
 

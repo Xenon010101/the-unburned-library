@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "test": "node --check script.js && node --check about.js && node --check skills.js && node --check projects.js && node --check focus.js && node --check architecture.js && node --check contact.js && node tests/smoke.mjs",
+    "test": "node --check script.js && node --check brick-3d.js && node --check about.js && node --check skills.js && node --check projects.js && node --check focus.js && node --check architecture.js && node --check contact.js && node tests/smoke.mjs",
     "test:browser": "node tests/browser-smoke.mjs"
   },
   "dependencies": {
-    "gsap": "3.15.0"
+    "gsap": "3.15.0",
+    "three": "0.180.0"
   }
 }
