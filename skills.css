@@ -1,0 +1,88 @@
+.skills-page { background: #0c0806; }
+.skills-page .site-header { background: linear-gradient(180deg, rgba(12,8,6,.95), rgba(12,8,6,.66)); }
+.skills-page .primary-nav a[aria-current="page"] { color: var(--gold-bright); }
+
+.craft-room { position: relative; min-height: 100svh; overflow: hidden; isolation: isolate; background: url("assets/nalanda-courtyard-hero.webp") center / cover no-repeat; }
+.craft-room__shade { position: absolute; z-index: -1; inset: 0; background: linear-gradient(90deg, rgba(8,5,4,.96), rgba(8,5,4,.72) 48%, rgba(8,5,4,.86)), linear-gradient(0deg, rgba(8,5,4,.9), transparent 65%); }
+.craft-layout { min-height: calc(100svh - 118px); display: grid; grid-template-columns: minmax(250px, .75fr) minmax(390px, 1.1fr) minmax(290px, .78fr); align-items: center; gap: clamp(1.5rem, 3vw, 3.8rem); padding-top: 7.5rem; padding-bottom: 2.5rem; }
+
+.craft-intro > p:first-child { margin: 0 0 1rem; color: var(--gold); letter-spacing: .1em; }
+.craft-intro h1 { margin: 0; font-family: var(--display); font-size: clamp(3.4rem, 5.4vw, 6rem); font-weight: 500; line-height: .92; letter-spacing: -.04em; text-wrap: balance; }
+.craft-intro > p:nth-of-type(2) { max-width: 520px; margin: 1.4rem 0 0; color: #e7dfd2; font-size: 1.08rem; }
+.craft-intro__instruction { max-width: 440px; margin: 1.4rem 0 0; padding-left: 1rem; border-left: 2px solid var(--gold); color: var(--muted); font-size: .83rem; }
+
+.skill-instrument { position: relative; width: min(100%, 470px); aspect-ratio: 1; justify-self: center; border-radius: 50%; transform-style: preserve-3d; }
+.skill-instrument::before { content: ""; position: absolute; inset: 13%; border-radius: 50%; background: radial-gradient(circle, rgba(119,55,29,.72) 0 18%, rgba(29,16,10,.82) 19% 44%, rgba(230,184,95,.1) 45% 46%, rgba(12,8,6,.88) 47%); box-shadow: inset 0 0 45px rgba(0,0,0,.8), 0 0 60px rgba(230,184,95,.13); }
+.skill-instrument__ring { position: absolute; border-radius: 50%; border: 1px solid var(--gold); pointer-events: none; }
+.skill-instrument__ring::before, .skill-instrument__ring::after { content: ""; position: absolute; background: var(--gold); }
+.skill-instrument__ring::before { top: 50%; left: -5px; right: -5px; height: 1px; }
+.skill-instrument__ring::after { top: -5px; bottom: -5px; left: 50%; width: 1px; }
+.skill-instrument__ring--outer { inset: 4%; border-width: 2px; box-shadow: 0 0 28px rgba(230,184,95,.18), inset 0 0 28px rgba(230,184,95,.08); }
+.skill-instrument__ring--middle { inset: 18%; border-color: rgba(255,216,121,.72); transform: rotate(45deg); }
+.skill-instrument__axis { position: absolute; inset: 30%; border: 1px dashed rgba(230,184,95,.45); border-radius: 50%; }
+.skill-instrument__core { position: absolute; z-index: 2; inset: 35%; display: grid; place-content: center; justify-items: center; padding: 1rem; border: 1px solid var(--gold); border-radius: 50%; color: var(--ivory); background: radial-gradient(circle at 35% 30%, #73371f, #1b0f0a 68%); box-shadow: 0 0 30px rgba(230,184,95,.24), inset 0 0 20px rgba(255,216,121,.12); text-align: center; }
+.skill-instrument__core small { color: var(--gold); font-size: .58rem; letter-spacing: .1em; text-transform: uppercase; }
+.skill-instrument__core strong { max-width: 110px; margin-top: .2rem; font-family: var(--display); font-size: clamp(1rem, 2vw, 1.45rem); font-weight: 500; line-height: 1; }
+
+.skill-node { position: absolute; z-index: 3; width: 108px; min-height: 84px; display: grid; place-content: center; justify-items: center; gap: .25rem; padding: .55rem; border: 1px solid rgba(230,184,95,.52); border-radius: 50%; color: var(--ivory); background: rgba(19,11,8,.94); box-shadow: 0 8px 24px rgba(0,0,0,.42); cursor: pointer; }
+.skill-node span { color: var(--gold-bright); font-family: var(--display); font-size: 1.25rem; }
+.skill-node strong { font-size: .72rem; font-weight: 600; }
+.skill-node[aria-pressed="true"] { border-color: var(--gold-bright); background: #6d321e; box-shadow: 0 0 0 5px rgba(230,184,95,.1), 0 0 30px rgba(230,184,95,.36); }
+.skill-node--top { top: 0; left: 50%; transform: translate(-50%, -8%); }
+.skill-node--right { top: 50%; right: 0; transform: translate(8%, -50%); }
+.skill-node--bottom { bottom: 0; left: 50%; transform: translate(-50%, 8%); }
+.skill-node--left { top: 50%; left: 0; transform: translate(-8%, -50%); }
+
+.skill-record { min-height: 530px; align-self: center; padding: clamp(1.5rem, 3vw, 2.4rem); border: 1px solid rgba(230,184,95,.44); background: linear-gradient(150deg, rgba(37,20,13,.94), rgba(12,8,6,.93)); box-shadow: 18px 22px 50px rgba(0,0,0,.38); }
+.skill-record__label { margin: 0; color: var(--gold); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; }
+.skill-record h2 { margin: .4rem 0 .8rem; font-family: var(--display); font-size: clamp(2.6rem, 4vw, 4rem); font-weight: 500; line-height: .95; }
+.skill-record > p:nth-of-type(2) { min-height: 82px; margin: 0; color: var(--muted); }
+.skill-record__tools { display: flex; flex-wrap: wrap; gap: .45rem; margin: 1.35rem 0; }
+.skill-record__tools span { padding: .35rem .55rem; border: 1px solid rgba(230,184,95,.35); color: var(--limestone); font-size: .72rem; }
+.skill-record__proof { margin: 1.4rem 0; padding: 1rem; border-left: 3px solid var(--gold); background: rgba(230,184,95,.08); }
+.skill-record__proof small { display: block; color: var(--gold); }
+.skill-record__proof strong { display: block; margin: .2rem 0; font-family: var(--display); font-size: 1.45rem; font-weight: 500; }
+.skill-record__proof p { margin: 0; color: #ddd2c0; font-size: .86rem; }
+.skill-record dl { margin: 0; }
+.skill-record dl div { display: grid; grid-template-columns: 88px 1fr; gap: .8rem; padding: .65rem 0; border-top: 1px solid rgba(230,184,95,.2); }
+.skill-record dt { color: var(--gold); font-size: .72rem; }
+.skill-record dd { margin: 0; color: var(--muted); font-size: .8rem; }
+
+.craft-next { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-bottom: 1.4rem; }
+.craft-next p { margin: 0; color: var(--limestone); font-family: var(--display); }
+.craft-next p span { color: var(--gold); margin-inline: .35rem; }
+
+@media (max-width: 1080px) {
+  .craft-layout { grid-template-columns: minmax(260px, .72fr) minmax(380px, 1fr); }
+  .skill-record { grid-column: 1 / -1; width: min(100%, 760px); min-height: auto; justify-self: center; }
+}
+
+@media (max-width: 760px) {
+  .craft-layout { grid-template-columns: 1fr; padding-top: 7.5rem; }
+  .craft-intro { max-width: 650px; }
+  .skill-instrument { width: min(88vw, 450px); }
+  .skill-record { width: 100%; }
+  .craft-next { display: grid; padding-top: 2rem; padding-bottom: 2rem; }
+  .craft-next .button { width: 100%; }
+}
+
+@media (max-width: 620px) {
+  .skills-page .site-header { position: sticky; inset: auto; top: 0; width: auto; }
+  .craft-layout { gap: 2.7rem; padding-top: 3.5rem; }
+  .craft-intro h1 { font-size: clamp(3rem, 14.5vw, 4.35rem); }
+  .skill-instrument { width: min(92vw, 390px); }
+  .skill-node { width: 88px; min-height: 72px; }
+  .skill-node span { font-size: 1rem; }
+  .skill-node strong { font-size: .64rem; }
+  .skill-instrument__core { inset: 33%; }
+  .skill-record { padding: 1.3rem; }
+  .skill-record > p:nth-of-type(2) { min-height: auto; }
+  .skill-record dl div { grid-template-columns: 1fr; gap: .2rem; }
+  .craft-next p { line-height: 2; }
+}
+
+@media (max-width: 390px) {
+  .skill-instrument { width: min(88vw, 340px); }
+  .skill-node { width: 78px; min-height: 66px; }
+}
+

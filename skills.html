@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The engineering skills, tools and project evidence behind Anmol Patel's work.">
+  <meta name="theme-color" content="#100b08">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <title>Skills & Craft — The Unburned Library</title>
+  <link rel="preload" href="assets/nalanda-courtyard-hero.webp" as="image" type="image/webp" fetchpriority="high">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="skills.css">
+  <script src="assets/vendor/gsap-3.15.0.min.js" defer></script>
+  <script src="skills.js" defer></script>
+</head>
+<body class="skills-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" data-header>
+    <a class="brand" href="index.html#home" aria-label="The Unburned Library, home">
+      <svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true">
+        <circle cx="24" cy="24" r="21"></circle>
+        <path d="M24 39V14m0 8-9-7m9 13 11-9M17 34l7-7m7 7-7-7M16 12l8 7 8-8"></path>
+      </svg>
+      <span class="brand__full">The Unburned Library</span>
+      <span class="brand__short">Unburned Library</span>
+    </a>
+
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="primary-nav" data-menu-button>
+      <span aria-hidden="true">☰</span><span>Menu</span>
+    </button>
+
+    <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation" data-nav>
+      <a href="about.html">About</a>
+      <a href="skills.html" aria-current="page">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="craft-room" aria-labelledby="skills-page-title">
+      <div class="craft-room__shade" aria-hidden="true"></div>
+      <div class="craft-layout page-shell">
+        <header class="craft-intro">
+          <p data-craft-copy>Skills and craft</p>
+          <h1 id="skills-page-title" data-craft-copy>Tools become useful when they leave evidence.</h1>
+          <p data-craft-copy>I use a broad stack, but judge every tool by the problem it solves and the responsibility it carries.</p>
+          <p class="craft-intro__instruction" id="instrument-instruction" data-craft-copy>Select a discipline on the instrument to inspect its working record.</p>
+        </header>
+
+        <div class="skill-instrument" aria-label="Interactive engineering disciplines" aria-describedby="instrument-instruction" data-instrument>
+          <span class="skill-instrument__ring skill-instrument__ring--outer" aria-hidden="true" data-ring-outer></span>
+          <span class="skill-instrument__ring skill-instrument__ring--middle" aria-hidden="true" data-ring-middle></span>
+          <span class="skill-instrument__axis" aria-hidden="true"></span>
+
+          <button class="skill-node skill-node--top" type="button" aria-pressed="true" aria-controls="skill-record" data-skill="interfaces">
+            <span>UI</span><strong>Interfaces</strong>
+          </button>
+          <button class="skill-node skill-node--right" type="button" aria-pressed="false" aria-controls="skill-record" data-skill="systems">
+            <span>{ }</span><strong>Systems</strong>
+          </button>
+          <button class="skill-node skill-node--bottom" type="button" aria-pressed="false" aria-controls="skill-record" data-skill="data">
+            <span>DB</span><strong>Data</strong>
+          </button>
+          <button class="skill-node skill-node--left" type="button" aria-pressed="false" aria-controls="skill-record" data-skill="cloud">
+            <span>☁</span><strong>Cloud</strong>
+          </button>
+
+          <div class="skill-instrument__core" aria-hidden="true">
+            <small>Selected craft</small>
+            <strong data-skill-center>Interfaces</strong>
+          </div>
+        </div>
+
+        <article class="skill-record" id="skill-record" aria-live="polite" data-skill-record>
+          <p class="skill-record__label">Working record</p>
+          <h2 data-skill-title>Interfaces</h2>
+          <p data-skill-description>I build responsive browser experiences that keep the user's goal visible and the interface predictable.</p>
+
+          <div class="skill-record__tools">
+            <span data-skill-tool>React</span>
+            <span data-skill-tool>TypeScript</span>
+            <span data-skill-tool>JavaScript</span>
+          </div>
+
+          <div class="skill-record__proof">
+            <small data-skill-evidence-state>Verified evidence</small>
+            <strong data-skill-project>FocusTube</strong>
+            <p data-skill-proof>A browser extension that restores a focused learning interface as YouTube changes underneath it.</p>
+          </div>
+
+          <dl>
+            <div><dt>I use it for</dt><dd data-skill-use>Accessible UI, browser behavior and stateful interactions.</dd></div>
+            <div><dt>I protect</dt><dd data-skill-protect>User control, clarity and responsive performance.</dd></div>
+          </dl>
+        </article>
+      </div>
+
+      <footer class="craft-next page-shell">
+        <p>Understand <span>→</span> Build <span>→</span> Test <span>→</span> Preserve</p>
+        <a class="button button--primary" href="projects.html">Inspect the projects</a>
+      </footer>
+    </section>
+  </main>
+</body>
+</html>

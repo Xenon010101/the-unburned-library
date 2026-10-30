@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The recovered engineering record of FocusTube: what broke, what changed and what survived.">
+  <meta name="theme-color" content="#100b08">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <title>FocusTube Recovered Record — The Unburned Library</title>
+  <link rel="preload" href="assets/nalanda-courtyard-hero.webp" as="image" type="image/webp" fetchpriority="high">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="focus.css">
+  <script src="assets/vendor/gsap-3.15.0.min.js" defer></script>
+  <script src="focus.js" defer></script>
+</head>
+<body class="focus-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" data-header>
+    <a class="brand" href="index.html#home" aria-label="The Unburned Library, home">
+      <svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true">
+        <circle cx="24" cy="24" r="21"></circle>
+        <path d="M24 39V14m0 8-9-7m9 13 11-9M17 34l7-7m7 7-7-7M16 12l8 7 8-8"></path>
+      </svg>
+      <span class="brand__full">The Unburned Library</span>
+      <span class="brand__short">Unburned Library</span>
+    </a>
+
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="primary-nav" data-menu-button>
+      <span aria-hidden="true">☰</span><span>Menu</span>
+    </button>
+
+    <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation" data-nav>
+      <a href="about.html">About</a>
+      <a href="skills.html">Skills</a>
+      <a href="projects.html" aria-current="page">Projects</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="record-stage" aria-labelledby="focus-record-title">
+      <div class="record-stage__shade" aria-hidden="true"></div>
+      <div class="record-layout page-shell">
+        <a class="record-back" href="projects.html">← Return to projects</a>
+
+        <header class="record-intro">
+          <p data-record-copy>Recovered record 01 · FocusTube</p>
+          <h1 id="focus-record-title" data-record-copy>The interface kept rebuilding itself.</h1>
+          <p data-record-copy>YouTube replaced sections of the page during navigation. Hiding distractions once was not enough.</p>
+        </header>
+
+        <article class="manuscript" data-manuscript>
+          <span class="manuscript__roller manuscript__roller--left" aria-hidden="true"></span>
+          <span class="manuscript__roller manuscript__roller--right" aria-hidden="true"></span>
+
+          <div class="manuscript__paper">
+            <div class="record-layers" aria-label="Engineering recovery sequence">
+              <section>
+                <span aria-hidden="true">01</span>
+                <div><h2>What broke</h2><p>Dynamic navigation replaced interface elements and erased the focus state.</p></div>
+              </section>
+              <section>
+                <span aria-hidden="true">02</span>
+                <div><h2>What I changed</h2><p>A MutationObserver and YouTube navigation events reapply the experience after every transition.</p></div>
+              </section>
+              <section>
+                <span aria-hidden="true">03</span>
+                <div><h2>What survived</h2><p>Video playback, user control, focus preferences and privacy.</p></div>
+              </section>
+            </div>
+
+            <section class="evidence-study" aria-labelledby="evidence-title">
+              <div class="evidence-study__heading">
+                <div>
+                  <p>Recovered evidence</p>
+                  <h2 id="evidence-title">The same page, with control restored.</h2>
+                </div>
+                <div class="evidence-toggle" role="group" aria-label="Preview state">
+                  <button type="button" aria-pressed="false" data-preview="before">Before</button>
+                  <button type="button" aria-pressed="true" data-preview="after">After</button>
+                </div>
+              </div>
+
+              <div class="evidence-study__body">
+                <div class="browser-study is-after" data-browser-study>
+                  <img src="assets/focustube-after.png" alt="YouTube watch page after FocusTube removes surrounding distractions while preserving the video player" width="1917" height="966" data-preview-image>
+                  <div class="browser-study__caption">
+                    <strong data-preview-title>Focus mode active</strong>
+                    <p data-preview-caption>After — the player remains while recommendations, comments and navigation clutter are removed.</p>
+                  </div>
+                </div>
+
+                <div class="evidence-proof">
+                  <ol class="recovery-flow" aria-label="Recovery implementation">
+                    <li><span>DOM change</span><small>YouTube replaces interface regions.</small></li>
+                    <li><span>Detect</span><small>Mutation and navigation signals wait for the render burst.</small></li>
+                    <li><span>Restore</span><small>Player, hidden regions and saved tab state are reapplied.</small></li>
+                  </ol>
+                  <dl class="verified-specs">
+                    <div><dt>Manifest</dt><dd>V3 · version 1.1.0</dd></div>
+                    <div><dt>Permissions</dt><dd><code>storage</code> · <code>activeTab</code></dd></div>
+                    <div><dt>Runtime</dt><dd>No build step · no third-party dependencies</dd></div>
+                    <div><dt>State</dt><dd>Synced preference · per-tab session state</dd></div>
+                  </dl>
+                  <section class="survival-contract" aria-labelledby="survival-contract-title">
+                    <p>Constraint ledger</p>
+                    <h3 id="survival-contract-title">The survival contract</h3>
+                    <ul>
+                      <li><code>Observe</code><span>React to page replacement without polling the network.</span></li>
+                      <li><code>Restore</code><span>Reapply only the focus state the visitor selected.</span></li>
+                      <li><code>Contain</code><span>Keep execution browser-only with no account or backend.</span></li>
+                    </ul>
+                  </section>
+                </div>
+              </div>
+            </section>
+
+            <footer class="record-facts">
+              <span>Browser-only</span><span>No accounts</span><span>No analytics</span><span>No remote code</span>
+            </footer>
+          </div>
+        </article>
+
+        <aside class="evidence-warning evidence-warning--verified" aria-label="Evidence status">
+          <div><strong>Public evidence verified</strong><p>Repository screenshots, source code and the Edge Add-ons destination were checked on October 29, 2026. No usage metrics are claimed.</p></div>
+          <div class="evidence-links">
+            <a href="https://github.com/Xenon010101/FocusTube" target="_blank" rel="noreferrer">View source</a>
+            <a href="https://microsoftedge.microsoft.com/addons/detail/cjhibbneibhhcjiiekbhfgiilhijgibo" target="_blank" rel="noreferrer">Install for Edge</a>
+            <a href="https://xenon010101.github.io/FocusTube/PRIVACY.html" target="_blank" rel="noreferrer">Privacy policy</a>
+          </div>
+        </aside>
+
+        <nav class="record-next" aria-label="Record navigation">
+          <a class="button" href="projects.html">Return to the archive</a>
+          <a class="button button--primary" href="architecture.html">Continue to architecture</a>
+        </nav>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

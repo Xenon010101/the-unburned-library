@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Recovered engineering records from Anmol Patel: real problems, interventions and surviving lessons.">
+  <meta name="theme-color" content="#100b08">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <title>Recovered Projects — The Unburned Library</title>
+  <link rel="preload" href="assets/nalanda-courtyard-hero.webp" as="image" type="image/webp" fetchpriority="high">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="projects.css">
+  <script src="assets/vendor/gsap-3.15.0.min.js" defer></script>
+  <script src="projects.js" defer></script>
+</head>
+<body class="projects-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" data-header>
+    <a class="brand" href="index.html#home" aria-label="The Unburned Library, home">
+      <svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true">
+        <circle cx="24" cy="24" r="21"></circle>
+        <path d="M24 39V14m0 8-9-7m9 13 11-9M17 34l7-7m7 7-7-7M16 12l8 7 8-8"></path>
+      </svg>
+      <span class="brand__full">The Unburned Library</span>
+      <span class="brand__short">Unburned Library</span>
+    </a>
+
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="primary-nav" data-menu-button>
+      <span aria-hidden="true">☰</span><span>Menu</span>
+    </button>
+
+    <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation" data-nav>
+      <a href="about.html">About</a>
+      <a href="skills.html">Skills</a>
+      <a href="projects.html" aria-current="page">Projects</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="archive-room" aria-labelledby="projects-page-title">
+      <div class="archive-room__shade" aria-hidden="true"></div>
+      <div class="archive-layout page-shell">
+        <div class="archive-index" id="archive-index">
+          <header>
+            <p data-project-copy>Recovered projects</p>
+            <h1 id="projects-page-title" data-project-copy>Real problems leave records.</h1>
+            <p data-project-copy>Select an archive drawer to inspect the problem, intervention and surviving lesson.</p>
+            <p class="archive-ledger" data-archive-ledger data-project-copy><strong>1 recovered</strong><span aria-hidden="true">·</span> 2 awaiting evidence</p>
+          </header>
+
+          <div class="archive-drawers" aria-label="Project records" data-project-copy>
+            <button type="button" aria-pressed="true" aria-controls="project-folio" data-project="focus">
+              <span>Recovered</span><strong>FocusTube</strong><small>Flagship record</small>
+            </button>
+            <button type="button" aria-pressed="false" aria-controls="project-folio" data-project="arogya">
+              <span>Provisional</span><strong>ArogyaAI</strong><small>Evidence pending</small>
+            </button>
+            <button type="button" aria-pressed="false" aria-controls="project-folio" data-project="insider">
+              <span>Collaborative</span><strong>InsiderEdge</strong><small>Ownership pending</small>
+            </button>
+          </div>
+        </div>
+
+        <figure class="project-artifact" data-project-artifact data-artifact-kind="focus">
+          <figcaption><span>Artifact viewer</span><strong data-artifact-label>Verified interface capture</strong></figcaption>
+          <div class="artifact-window">
+            <div class="artifact-window__bar" aria-hidden="true"><i></i><i></i><i></i><span>Recovered record</span></div>
+            <div class="artifact-canvas">
+              <img src="assets/focustube-after.png" alt="FocusTube active on a YouTube watch page, preserving the video while removing surrounding distractions" data-artifact-image>
+              <div class="artifact-canvas__placeholder" data-artifact-placeholder hidden>
+                <span class="artifact-canvas__seal" aria-hidden="true" data-artifact-glyph>◉</span>
+                <strong data-artifact-name>FocusTube</strong>
+                <small data-artifact-caption>Focused learning interface</small>
+                <div class="artifact-canvas__traces" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+              </div>
+            </div>
+          </div>
+          <p data-artifact-note>Authentic before/after captures and public source evidence live inside the recovered record.</p>
+        </figure>
+
+        <article class="project-folio" id="project-folio" aria-live="polite" data-project-folio>
+          <p class="project-folio__status" data-project-status>Recovered record 01</p>
+          <h2 data-project-title>FocusTube</h2>
+          <p class="project-folio__summary" data-project-summary>A privacy-conscious browser extension for distraction-free learning.</p>
+
+          <div class="project-folio__layers">
+            <section><h3>What broke</h3><p data-project-broke>YouTube’s single-page navigation replaced interface regions and erased the focus state.</p></section>
+            <section><h3>What changed</h3><p data-project-changed>A MutationObserver, navigation signals and per-tab session state restore the experience after transitions.</p></section>
+            <section><h3>What survived</h3><p data-project-survived>Playback, user control, preferences and privacy survive without an account or backend.</p></section>
+          </div>
+
+          <div class="project-folio__tags">
+            <span data-project-tag>JavaScript</span><span data-project-tag>Browser extension</span><span data-project-tag>Privacy</span>
+          </div>
+
+          <div class="project-folio__evidence">
+            <strong data-project-evidence-title>Evidence state: publicly verified</strong>
+            <p data-project-evidence>Public source, authentic before/after captures and the Edge Add-ons destination are attached to the recovered record.</p>
+          </div>
+
+          <a class="button button--primary" href="focus.html" data-project-link>Open the recovered record</a>
+        </article>
+      </div>
+
+      <footer class="archive-next page-shell">
+        <p>Only verified work earns a complete record.</p>
+        <a class="text-action" href="architecture.html">Continue to architecture</a>
+      </footer>
+    </section>
+  </main>
+</body>
+</html>

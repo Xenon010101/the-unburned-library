@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Anmol Patel's engineering portfolio, presented as a digital conservation archive inspired by Nalanda Mahavihara.">
+  <meta name="theme-color" content="#100b08">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <title>The Unburned Library — Anmol Patel</title>
+  <link rel="preload" href="assets/nalanda-courtyard-hero.webp" as="image" type="image/webp" fetchpriority="high">
+  <link rel="stylesheet" href="styles.css">
+  <script src="assets/vendor/gsap-3.15.0.min.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" data-header>
+    <a class="brand" href="#home" aria-label="The Unburned Library, home">
+      <svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true">
+        <circle cx="24" cy="24" r="21"></circle>
+        <path d="M24 39V14m0 8-9-7m9 13 11-9M17 34l7-7m7 7-7-7M16 12l8 7 8-8"></path>
+      </svg>
+      <span class="brand__full">The Unburned Library</span>
+      <span class="brand__short">Unburned Library</span>
+    </a>
+
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="primary-nav" data-menu-button>
+      <span aria-hidden="true">☰</span><span>Menu</span>
+    </button>
+
+    <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation" data-nav>
+      <a href="about.html">About</a>
+      <a href="skills.html">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="hero__shade" aria-hidden="true"></div>
+      <div class="hero__atmosphere" aria-hidden="true"></div>
+      <div class="hero__content page-shell">
+        <p class="identity" data-hero-copy>Anmol Patel <span aria-hidden="true">•</span> Software engineer</p>
+        <h1 id="hero-title" data-hero-copy>I build systems<br> that survive change.</h1>
+        <p class="hero__lede" data-hero-copy>A digital conservation wall for the projects, failures and lessons worth preserving.</p>
+        <div class="hero__actions" data-hero-copy>
+          <button class="button button--primary" type="button" data-recover>Recover the first record</button>
+          <a class="button button--quiet" href="projects.html">Explore projects</a>
+        </div>
+        <p class="context-note" data-hero-copy>An artistic interpretation inspired by conservation at Nalanda Mahavihara.</p>
+      </div>
+
+      <div class="brick-stage" aria-label="Interactive conservation wall" data-brick-stage>
+        <p class="brick-stage__callout" data-brick-callout>Press the glowing brick to recover record 01.</p>
+        <p class="brick-stage__cavity" aria-hidden="true" data-brick-cavity><span>What broke</span>The interface kept rebuilding itself.</p>
+        <span class="brick-stage__dust" aria-hidden="true" data-brick-dust></span>
+        <button class="recover-brick" type="button" aria-label="Recover FocusTube record 01" aria-controls="focus-record" aria-describedby="brick-instruction" data-brick>
+          <span class="brick-cuboid" aria-hidden="true">
+            <span class="brick-face brick-face--front"><span class="recover-brick__face"><b>FocusTube</b><small>Recovered record 01</small></span></span>
+            <span class="brick-face brick-face--back"></span>
+            <span class="brick-face brick-face--right"></span>
+            <span class="brick-face brick-face--left"></span>
+            <span class="brick-face brick-face--top"></span>
+            <span class="brick-face brick-face--bottom"></span>
+          </span>
+        </button>
+        <span class="brick-stage__tray" aria-hidden="true" data-brick-tray></span>
+        <p class="visually-hidden" id="brick-instruction">Activating this brick opens the FocusTube engineering case study.</p>
+        <p class="visually-hidden" role="status" aria-live="polite" data-brick-status></p>
+      </div>
+
+      <button class="keeper-launch" type="button" aria-controls="keeper-dialog" data-keeper-open>
+        <span class="keeper-launch__figure" aria-hidden="true">
+          <img src="assets/keeper-mini-ancient.webp" alt="" width="1122" height="1402">
+        </span>
+        <span>Ask the Keeper</span>
+      </button>
+    </section>
+
+    <section class="about archive-preview archive-preview--builder section page-shell" id="about" aria-labelledby="about-title">
+      <div class="archive-preview__index" aria-hidden="true">01 / THE BUILDER</div>
+      <div class="archive-preview__layout">
+        <div class="archive-preview__copy">
+          <div class="section-heading">
+            <p>About the builder</p>
+            <h2 id="about-title">Rooted in Nalanda.<br>Built for change.</h2>
+          </div>
+          <p class="large-copy">I’m Anmol Patel, a software engineering student from Nalanda, Bihar. I build practical products where technology meets people and real-world problems.</p>
+          <blockquote>Understand what failed. Change what matters. Preserve what still works.</blockquote>
+          <a class="archive-link" href="about.html">Enter the builder’s manuscript <span aria-hidden="true">→</span></a>
+        </div>
+        <figure class="portrait portrait--preview">
+          <img src="assets/anmol-portrait.webp" alt="Anmol Patel wearing glasses and an olive-green shirt" width="900" height="1125" loading="lazy">
+          <figcaption><span>ROOTS</span>Nalanda, Bihar · Full-stack + AI</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="skills archive-preview archive-preview--craft section" id="skills" aria-labelledby="skills-title">
+      <div class="page-shell">
+        <div class="archive-preview__index" aria-hidden="true">02 / THE CRAFT</div>
+        <div class="section-heading section-heading--split">
+          <div><p>Skills and craft</p><h2 id="skills-title">Four disciplines.<br>One working method.</h2></div>
+          <p>Each tool is tied to a system I have built, tested or deployed—not a decorative list of logos.</p>
+        </div>
+        <div class="skill-grid skill-grid--preview">
+          <article><span>01</span><h3>Interfaces</h3><p>React · TypeScript · JavaScript</p></article>
+          <article><span>02</span><h3>Systems</h3><p>Node.js · Python · REST APIs</p></article>
+          <article><span>03</span><h3>Data</h3><p>MongoDB · MySQL</p></article>
+          <article><span>04</span><h3>Delivery</h3><p>AWS Amplify · Git · GitHub</p></article>
+        </div>
+        <div class="archive-preview__foot">
+          <p class="method-line" aria-label="Working method">Understand <span>→</span> Build <span>→</span> Test <span>→</span> Preserve</p>
+          <a class="archive-link" href="skills.html">Inspect the craft instrument <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects archive-preview archive-preview--record section page-shell" id="projects" aria-labelledby="projects-title">
+      <div class="archive-preview__index" aria-hidden="true">03 / VERIFIED RECORD</div>
+      <div class="section-heading section-heading--split">
+        <div><p>Recovered project 01</p><h2 id="projects-title">FocusTube:<br>failure into evidence.</h2></div>
+        <p>The first record is complete: a real problem, the engineering response, a working artifact and public proof.</p>
+      </div>
+      <article class="featured-record">
+        <figure class="featured-record__screen">
+          <img src="assets/focustube-after.png" alt="FocusTube running on a YouTube watch page with surrounding distractions removed" width="1917" height="966" loading="lazy">
+          <figcaption>Verified after-state · public repository evidence</figcaption>
+        </figure>
+        <div class="featured-record__story">
+          <p class="project__status">PUBLICLY VERIFIED · MANIFEST V3 · V1.1.0</p>
+          <h3>The page kept rebuilding itself.</h3>
+          <dl class="record-ledger">
+            <div><dt>What broke</dt><dd>Dynamic navigation erased the focus state.</dd></div>
+            <div><dt>What changed</dt><dd>Navigation events and a MutationObserver restore it.</dd></div>
+            <div><dt>What survived</dt><dd>Playback, user choice and privacy.</dd></div>
+          </dl>
+          <div class="featured-record__actions">
+            <button class="button button--primary" type="button" data-recover>Recover the record</button>
+            <a class="archive-link" href="projects.html">Open the project archive <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="architecture archive-preview archive-preview--system section" id="architecture" aria-labelledby="architecture-title">
+      <div class="page-shell">
+        <div class="archive-preview__index" aria-hidden="true">04 / THE DELIVERY ROUTE</div>
+        <div class="section-heading section-heading--split">
+          <div><p>AWS architecture</p><h2 id="architecture-title">Static first.<br>AI remains optional.</h2></div>
+          <p>The production portfolio is complete without a model call. That keeps the experience fast, resilient and inexpensive.</p>
+        </div>
+        <div class="architecture-board architecture-board--preview">
+          <div class="architecture-board__flow" aria-label="Core portfolio architecture">
+            <span><small>01</small>Static package<em>Tested files</em></span><b>→</b>
+            <span><small>02</small>AWS Amplify<em>Hosting</em></span><b>→</b>
+            <span><small>03</small>Global CDN<em>Cached delivery</em></span><b>→</b>
+            <span><small>04</small>Visitor<em>Fast first visit</em></span>
+          </div>
+          <div class="architecture-board__optional"><strong>Optional sealed route</strong><p>API Gateway → Lambda → Bedrock → cited portfolio records</p></div>
+        </div>
+        <div class="archive-preview__foot archive-preview__foot--system">
+          <p>Deployment verified on AWS Amplify · ap-southeast-2</p>
+          <a class="archive-link" href="architecture.html">Read the architecture ledger <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact archive-contact page-shell" id="contact" aria-labelledby="contact-title">
+      <div><p>Final folio · direct correspondence</p><h2 id="contact-title">Build something<br>worth preserving.</h2></div>
+      <div class="archive-contact__actions" id="contact-note">
+        <a class="button button--primary" href="contact.html">Open the correspondence desk</a>
+        <a href="mailto:anmolpatel2112@gmail.com">anmolpatel2112@gmail.com</a>
+        <span><a href="https://github.com/Xenon010101" target="_blank" rel="noreferrer">GitHub</a> · <a href="https://www.linkedin.com/in/anmol-patel-481b54289" target="_blank" rel="noreferrer">LinkedIn</a></span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer page-shell">
+    <span>The Unburned Library</span>
+    <span>Artistic interpretation inspired by conservation at Nalanda Mahavihara.</span>
+    <a href="#home">Back to top</a>
+  </footer>
+
+  <dialog class="record-dialog" id="focus-record" aria-labelledby="focus-record-title" data-record-dialog>
+    <form method="dialog" class="record-dialog__bar">
+      <span id="focus-record-title">Recovered record 01 — FocusTube</span>
+      <button type="submit" aria-label="Close FocusTube case study">Close</button>
+    </form>
+    <article class="folio" data-folio>
+      <header>
+        <p>The failure</p>
+        <h2>The interface kept rebuilding itself.</h2>
+        <p>YouTube replaced sections of the page during navigation. Hiding distractions once was not enough.</p>
+      </header>
+      <div class="folio__layers">
+        <section><h3>What broke</h3><p>Dynamic navigation replaced interface elements and erased the focus state.</p></section>
+        <section><h3>What I changed</h3><p>A MutationObserver and navigation events reapply the experience after every transition.</p></section>
+        <section><h3>What survived</h3><p>Video playback, user control, focus preferences and privacy.</p></section>
+      </div>
+      <p class="flow-diagram">DOM change <span>→</span> Observer <span>→</span> Restore focus</p>
+      <section class="evidence" aria-labelledby="evidence-title">
+        <div class="evidence__heading">
+          <h3 id="evidence-title">Evidence</h3>
+          <div role="group" aria-label="Preview state">
+            <button type="button" aria-pressed="false" data-evidence="before">Before</button>
+            <button type="button" aria-pressed="true" data-evidence="after">After</button>
+          </div>
+        </div>
+        <div class="evidence__preview" data-evidence-preview>
+          <img src="assets/focustube-after.png" alt="YouTube watch page after FocusTube removes surrounding distractions while preserving the video player" width="1917" height="966" data-evidence-image>
+          <small data-evidence-caption>Verified after-state screenshot from the public FocusTube repository.</small>
+          <div class="evidence__links">
+            <a href="focus.html">Read the full record</a>
+            <a href="https://github.com/Xenon010101/FocusTube" target="_blank" rel="noreferrer">View source</a>
+            <a href="https://microsoftedge.microsoft.com/addons/detail/cjhibbneibhhcjiiekbhfgiilhijgibo" target="_blank" rel="noreferrer">Install for Edge</a>
+          </div>
+        </div>
+      </section>
+      <footer>
+        <span>Manifest V3 · v1.1.0</span><span>2 permissions</span><span>No runtime dependencies</span>
+      </footer>
+    </article>
+  </dialog>
+
+  <dialog class="keeper-dialog" id="keeper-dialog" aria-labelledby="keeper-dialog-title" data-keeper-dialog>
+    <div class="keeper-dialog__frame">
+      <aside class="keeper-dialog__keeper" aria-hidden="true">
+        <span class="keeper-dialog__halo"></span>
+        <img src="assets/keeper-mini-ancient.webp" alt="" width="1122" height="1402">
+        <p><span>THE KEEPER</span>Guided by preserved records</p>
+      </aside>
+      <section class="keeper-dialog__manuscript">
+        <form method="dialog" class="keeper-dialog__header">
+          <div><small>Archive consultation · folio 01</small><strong id="keeper-dialog-title">Ask the Keeper</strong></div>
+          <button type="submit" aria-label="Close Keeper">Close</button>
+        </form>
+        <div class="keeper-dialog__body" aria-live="polite" data-keeper-answer>
+          <p><span class="keeper-dialog__dropcap">I</span> can guide you through Anmol’s verified work, the Nalanda inspiration and the AWS delivery route.</p>
+          <cite>Choose a preserved question below.</cite>
+        </div>
+        <div class="keeper-dialog__prompts" aria-label="Suggested questions">
+          <button type="button" data-question="focus"><span>01</span>Hardest FocusTube problem</button>
+          <button type="button" data-question="nalanda"><span>02</span>Why Nalanda?</button>
+          <button type="button" data-question="aws"><span>03</span>Show the AWS architecture</button>
+        </div>
+        <p class="keeper-dialog__guardrail"><span aria-hidden="true">✦</span> Evidence-grounded · Sources shown · No invented claims</p>
+      </section>
+    </div>
+  </dialog>
+</body>
+</html>

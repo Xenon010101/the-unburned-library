@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The story, roots and engineering philosophy behind Anmol Patel and The Unburned Library.">
+  <meta name="theme-color" content="#100b08">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <title>About Anmol — The Unburned Library</title>
+  <link rel="preload" href="assets/nalanda-courtyard-hero.webp" as="image" type="image/webp" fetchpriority="high">
+  <link rel="preload" href="assets/anmol-keeper-standing.webp" as="image" type="image/webp">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="about.css">
+  <script src="assets/vendor/gsap-3.15.0.min.js" defer></script>
+  <script src="about.js" defer></script>
+</head>
+<body class="about-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" data-header>
+    <a class="brand" href="index.html#home" aria-label="The Unburned Library, home">
+      <svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true">
+        <circle cx="24" cy="24" r="21"></circle>
+        <path d="M24 39V14m0 8-9-7m9 13 11-9M17 34l7-7m7 7-7-7M16 12l8 7 8-8"></path>
+      </svg>
+      <span class="brand__full">The Unburned Library</span>
+      <span class="brand__short">Unburned Library</span>
+    </a>
+
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="primary-nav" data-menu-button>
+      <span aria-hidden="true">☰</span><span>Menu</span>
+    </button>
+
+    <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation" data-nav>
+      <a href="about.html" aria-current="page">About</a>
+      <a href="skills.html">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main" class="about-main">
+    <section class="about-origin" aria-labelledby="about-page-title">
+      <div class="about-origin__shade" aria-hidden="true"></div>
+      <div class="about-origin__layout page-shell">
+        <div class="about-origin__copy">
+          <p class="about-origin__identity" data-about-copy>Anmol Patel <span aria-hidden="true">•</span> Builder and keeper</p>
+          <h1 id="about-page-title" data-about-copy>A builder with roots in Nalanda.</h1>
+          <p class="about-origin__lede" data-about-copy>I’m a software engineering student from Nalanda, Bihar. I build practical products where technology meets people and real-world problems.</p>
+          <blockquote data-about-copy>Engineering is an act of preservation: understand what failed, change what matters, and protect what still works.</blockquote>
+          <div class="about-origin__actions" data-about-copy>
+            <button class="button button--primary" type="button" aria-controls="journey-manuscript" data-journey-open>Open my manuscript</button>
+            <a class="button button--quiet" href="#journey">Follow the journey</a>
+          </div>
+
+          <dl class="origin-facts" data-about-copy>
+            <div><dt>Roots</dt><dd>Nalanda, Bihar</dd></div>
+            <div><dt>Focus</dt><dd>Full-stack + AI</dd></div>
+            <div><dt>Method</dt><dd>Build · Test · Preserve</dd></div>
+          </dl>
+        </div>
+
+        <figure class="conservation-portrait" data-about-portrait>
+          <span class="conservation-portrait__glow" data-keeper-glow aria-hidden="true"></span>
+          <div class="conservation-portrait__image">
+            <img src="assets/anmol-keeper-standing.webp" alt="Symbolic portrait of Anmol Patel as the Keeper, standing with a lantern and manuscript" width="1024" height="1536" data-keeper-image>
+          </div>
+          <figcaption data-keeper-caption>
+            <span>Symbolic portrait</span>
+            <strong>The Keeper</strong>
+            <small>The lantern finds. The manuscript remembers.</small>
+          </figcaption>
+        </figure>
+      </div>
+      <a class="about-origin__continue" href="#journey">The journey continues below <span aria-hidden="true">↓</span></a>
+    </section>
+
+    <section class="journey-section page-shell" id="journey" aria-labelledby="journey-title">
+      <header class="journey-section__heading">
+        <p>Four layers, one practice</p>
+        <h2 id="journey-title">What I carry forward.</h2>
+        <p>The place shaped the metaphor. The work gives it proof.</p>
+      </header>
+
+      <ol class="journey-path">
+        <li data-journey-step>
+          <span aria-hidden="true">01</span>
+          <div><h3>Roots</h3><p>Nalanda made knowledge feel less like information and more like something people are responsible for carrying forward.</p></div>
+        </li>
+        <li data-journey-step>
+          <span aria-hidden="true">02</span>
+          <div><h3>Learning</h3><p>I study the whole path from interface to backend, data and cloud so an idea can survive contact with real users.</p></div>
+        </li>
+        <li data-journey-step>
+          <span aria-hidden="true">03</span>
+          <div><h3>Building</h3><p>I turn friction into products: understand the problem, test the intervention and keep evidence of what changed.</p></div>
+        </li>
+        <li data-journey-step>
+          <span aria-hidden="true">04</span>
+          <div><h3>Preserving</h3><p>Every project record keeps the failure, decision and surviving lesson visible—not only the polished outcome.</p></div>
+        </li>
+      </ol>
+
+      <div class="journey-section__next">
+        <p>The next record is about the tools behind the work.</p>
+        <a class="text-action" href="skills.html">Continue to skills</a>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="journey-dialog" id="journey-manuscript" aria-labelledby="manuscript-title" data-journey-dialog>
+    <button class="dialog-close" type="button" aria-label="Close manuscript" data-journey-close>×</button>
+    <div class="manuscript-stage">
+      <div class="manuscript-glow" aria-hidden="true"></div>
+      <article class="manuscript" data-manuscript>
+        <section class="manuscript__leaf manuscript__leaf--left" data-manuscript-left>
+          <p class="manuscript__kicker">The keeper’s manuscript</p>
+          <h2 id="manuscript-title">Why this library exists</h2>
+          <p>I grew up connected to Nalanda, a place whose identity is inseparable from learning. That connection shaped how I think about engineering: useful knowledge should not disappear when a system changes.</p>
+          <blockquote>Build for change. Preserve the reason.</blockquote>
+        </section>
+        <section class="manuscript__leaf manuscript__leaf--right" data-manuscript-right>
+          <h3>My working practice</h3>
+          <dl>
+            <div><dt>Understand</dt><dd>Find the real failure, not only the visible symptom.</dd></div>
+            <div><dt>Build</dt><dd>Make the smallest intervention that solves it.</dd></div>
+            <div><dt>Test</dt><dd>Collect evidence that the change survives real use.</dd></div>
+            <div><dt>Preserve</dt><dd>Document the decision so the next change starts wiser.</dd></div>
+          </dl>
+          <p class="manuscript__note">This portfolio is an artistic interpretation inspired by conservation at Nalanda Mahavihara, not a reconstruction of the archaeological site.</p>
+        </section>
+      </article>
+    </div>
+  </dialog>
+</body>
+</html>

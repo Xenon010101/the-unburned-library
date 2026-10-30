@@ -1,0 +1,29 @@
+node_modules/
+.chrome-qa-profile/
+.edge-qa-profile/
+.playwright-mcp/
+
+# Local QA and release artifacts
+qa/
+tmp/
+amplify-dist/
+design-references/
+the-unburned-library-amplify.zip
+*qa*.png
+amplify-*-proof.png
+contact-review-*.png
+
+# Private working notes and imported research
+AGENTS.md
+PROJECT_CONTEXT.md
+START_HERE.md
+security-gsap-skills-audit.md
+research/
+
+# Superseded source images; optimized WebP versions are committed
+assets/nalanda-courtyard-hero.png
+assets/anmol-keeper-standing.png
+assets/keeper-mini-ancient.png
+assets/anmol-portrait.png
+assets/anmol-portrait-transparent.png
+assets/keeper-mini.png

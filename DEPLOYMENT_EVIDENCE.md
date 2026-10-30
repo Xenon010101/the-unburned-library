@@ -1,0 +1,43 @@
+# AWS Amplify Deployment Evidence
+
+Verified on 30 October 2026 (Asia/Calcutta).
+
+- Service: AWS Amplify Hosting, static `WEB` app
+- Region: Sydney (`ap-southeast-2`)
+- App name: `the-unburned-library`
+- App ID: `d38i1t194jgpzt`
+- Branch: `production`
+- Initial deployment job: `1` — `SUCCEED` (11:42:50–11:42:53 IST)
+- Evidence-update job: `2` — `SUCCEED` (11:48:21–11:48:30 IST)
+- Verified-contact job: `3` — `SUCCEED` (11:55:47–11:55:56 IST)
+- About-transition job: `4` — `SUCCEED` (15:46:37–15:46:46 IST)
+- Skills-instrument job: `5` — `SUCCEED` (16:00:23–16:00:32 IST)
+- Projects-archive job: `6` — `SUCCEED` (16:30:03–16:30:12 IST)
+- Projects-motion-fix job: `7` — `SUCCEED` (16:41:40–16:41:49 IST)
+- Architecture-evidence job: `8` — `SUCCEED` (16:58:44–16:58:53 IST)
+- Architecture-baseline-label job: `9` — `SUCCEED` (17:00:29–17:00:38 IST)
+- Empty deployment reservations: jobs `10` and `11` — `CANCELLED` before upload or start
+- Official-AWS-icons job: `12` — `SUCCEED` (17:24:48–17:24:57 IST)
+- Contact-correspondence job: `13` — `SUCCEED` (17:50:02–17:50:11 IST)
+- Homepage-accessibility job: `14` — `SUCCEED` (22:32:56–22:33:05 IST)
+- Homepage-focus-return job: `15` — `SUCCEED` (22:37:42–22:37:51 IST)
+- About-mobile-overflow job: `16` — `SUCCEED` (23:00:39–23:00:49 IST)
+- Production-release job: `17` — `SUCCEED` (09:57:29–09:57:38 IST)
+- Live URL: https://production.d38i1t194jgpzt.amplifyapp.com/
+- Public verification: Architecture page loaded with all five local official AWS SVGs at non-zero intrinsic dimensions; the Contact page preserved all three verified destinations and fit its desk and portrait inside the 430px viewport with no horizontal overflow
+- Homepage verification: at 430×932, changing reduced motion 120ms into the brick recovery opened the record immediately; Escape closed it, re-enabled the brick and returned focus to the exact trigger with no horizontal overflow
+- About verification: at 390×932 and 430×932, the live page had zero horizontal overflow, retained one visible left-side journey connector per card, loaded every image and returned HTTP 200
+- Production-release verification: the live homepage exposed the rebuilt archive sections, opened the illuminated Keeper manuscript dialog, and produced no browser console errors
+
+The deployment contains 35 production files in a 2.03 MB ZIP. It excludes local tests, QA screenshots, browser profiles, source notes, design references, development dependencies and superseded high-resolution PNG assets. There is no deployed backend, database, authentication service, Lambda function, API Gateway or Bedrock integration.
+
+## Repeatable update flow
+
+1. Run `npm test`.
+2. Rebuild `amplify-dist` from the production HTML, CSS, JavaScript and referenced assets.
+3. Compress the contents so `index.html` is at the ZIP root.
+4. Create an Amplify deployment for app `d38i1t194jgpzt`, branch `production`.
+5. Upload the ZIP to the returned one-time URL and start the deployment job.
+6. Wait for `SUCCEED`, then verify the public homepage and a production asset.
+
+The optional Keeper architecture shown on the site remains a clearly labelled future enhancement and was not deployed.

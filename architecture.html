@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The AWS architecture behind The Unburned Library: a reliable static core with an optional evidence-grounded Keeper.">
+  <meta name="theme-color" content="#100b08">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <title>AWS Architecture — The Unburned Library</title>
+  <link rel="preload" href="assets/nalanda-courtyard-hero.webp" as="image" type="image/webp" fetchpriority="high">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="architecture.css">
+  <script src="assets/vendor/gsap-3.15.0.min.js" defer></script>
+  <script src="architecture.js" defer></script>
+</head>
+<body class="architecture-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" data-header>
+    <a class="brand" href="index.html#home" aria-label="The Unburned Library, home">
+      <svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true">
+        <circle cx="24" cy="24" r="21"></circle>
+        <path d="M24 39V14m0 8-9-7m9 13 11-9M17 34l7-7m7 7-7-7M16 12l8 7 8-8"></path>
+      </svg>
+      <span class="brand__full">The Unburned Library</span>
+      <span class="brand__short">Unburned Library</span>
+    </a>
+
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="primary-nav" data-menu-button>
+      <span aria-hidden="true">☰</span><span>Menu</span>
+    </button>
+
+    <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation" data-nav>
+      <a href="about.html">About</a>
+      <a href="skills.html">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="architecture.html" aria-current="page">Architecture</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="architecture-stage" aria-labelledby="architecture-page-title">
+      <div class="architecture-stage__shade" aria-hidden="true"></div>
+      <div class="architecture-layout page-shell">
+        <a class="architecture-back" href="focus.html">← Return to FocusTube</a>
+
+        <header class="architecture-intro">
+          <p data-architecture-copy>AWS architecture</p>
+          <h1 id="architecture-page-title" data-architecture-copy>Built to survive. Simple to operate.</h1>
+          <p data-architecture-copy>The portfolio ships as a complete static experience. The Keeper remains optional, isolated and evidence-grounded.</p>
+        </header>
+
+        <section class="architecture-plan" aria-label="AWS system plan" data-architecture-plan>
+          <div class="architecture-plan__core">
+            <header>
+              <div><p>Reliable path</p><h2>Core portfolio</h2></div>
+              <span class="status-seal">Live · verified</span>
+            </header>
+
+            <div class="route-chain route-chain--core" aria-label="Static package to visitor deployment path">
+              <article class="service-node service-node--github" data-core-node>
+                <span class="service-node__mark" aria-hidden="true">ZIP</span>
+                <h3>Static package</h3><p>Tested production files</p>
+              </article>
+              <span class="route-arrow" aria-hidden="true" data-core-arrow>→</span>
+              <article class="service-node service-node--amplify" data-core-node>
+                <span class="service-node__mark service-node__mark--official" aria-hidden="true"><img src="assets/aws-icons/aws-amplify.svg" alt="" data-official-aws-icon></span>
+                <h3>AWS Amplify Hosting</h3><p>Static HTML, CSS and JavaScript</p>
+              </article>
+              <span class="route-arrow" aria-hidden="true" data-core-arrow>→</span>
+              <article class="service-node service-node--cdn" data-core-node>
+                <span class="service-node__mark service-node__mark--official" aria-hidden="true"><img src="assets/aws-icons/amazon-cloudfront.svg" alt="" data-official-aws-icon></span>
+                <h3>Amplify global CDN</h3><p>CloudFront-powered delivery</p>
+              </article>
+              <span class="route-arrow" aria-hidden="true" data-core-arrow>→</span>
+              <article class="service-node service-node--visitor" data-core-node>
+                <span class="service-node__mark" aria-hidden="true">◎</span>
+                <h3>Visitor</h3><p>Complete portfolio</p>
+              </article>
+            </div>
+
+            <dl class="deployment-ledger" aria-label="Verified production deployment facts">
+              <div data-deployment-fact><dt>Platform</dt><dd>WEB</dd></div>
+              <div data-deployment-fact><dt>Branch</dt><dd>production</dd></div>
+              <div data-deployment-fact><dt>Region</dt><dd>Sydney · ap-southeast-2</dd></div>
+              <div data-deployment-fact><dt>Verified baseline</dt><dd>Job 16 · SUCCEED</dd></div>
+            </dl>
+            <p class="icon-source-note">Service marks: <a href="https://aws.amazon.com/architecture/icons/" target="_blank" rel="noreferrer">Official AWS Architecture Icons · Q3 2026</a>.</p>
+          </div>
+
+          <div class="architecture-plan__optional">
+            <header>
+              <div><p>Planned enhancement</p><h2>Optional Keeper</h2></div>
+              <span class="status-seal status-seal--planned">Not deployed · 0 calls</span>
+            </header>
+
+            <div class="route-chain route-chain--optional" aria-label="Optional Keeper request path">
+              <article class="service-node service-node--browser" data-optional-node>
+                <span class="service-node__mark" aria-hidden="true">?</span>
+                <h3>Question</h3><p>Bounded visitor input</p>
+              </article>
+              <span class="route-arrow" aria-hidden="true" data-optional-arrow>→</span>
+              <article class="service-node service-node--gateway" data-optional-node>
+                <span class="service-node__mark service-node__mark--official" aria-hidden="true"><img src="assets/aws-icons/amazon-api-gateway.svg" alt="" data-official-aws-icon></span>
+                <h3>API Gateway</h3><p>Public entry point</p>
+              </article>
+              <span class="route-arrow" aria-hidden="true" data-optional-arrow>→</span>
+              <article class="service-node service-node--lambda" data-optional-node>
+                <span class="service-node__mark service-node__mark--official" aria-hidden="true"><img src="assets/aws-icons/aws-lambda.svg" alt="" data-official-aws-icon></span>
+                <h3>AWS Lambda</h3><p>Validate and build prompt</p>
+              </article>
+              <span class="route-arrow" aria-hidden="true" data-optional-arrow>→</span>
+              <article class="service-node service-node--bedrock" data-optional-node>
+                <span class="service-node__mark service-node__mark--official" aria-hidden="true"><img src="assets/aws-icons/amazon-bedrock.svg" alt="" data-official-aws-icon></span>
+                <h3>Amazon Bedrock</h3><p>Generate bounded answer</p>
+              </article>
+              <span class="route-arrow" aria-hidden="true" data-optional-arrow>→</span>
+              <article class="service-node service-node--record" data-optional-node>
+                <span class="service-node__mark" aria-hidden="true">▤</span>
+                <h3>Cited record</h3><p>Evidence-grounded response</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="architecture-decisions" aria-labelledby="decisions-title">
+          <h2 id="decisions-title">Decisions that keep it dependable</h2>
+          <ol>
+            <li><span>01</span><div><h3>Static first</h3><p>Identity, projects and evidence load without AI.</p></div></li>
+            <li><span>02</span><div><h3>Bound the cost</h3><p>No database, authentication or vector store unless the product genuinely needs one.</p></div></li>
+            <li><span>03</span><div><h3>Graceful fallback</h3><p>The complete portfolio works when animation or AI is unavailable.</p></div></li>
+          </ol>
+        </section>
+
+        <aside class="budget-rail" aria-label="Cost and deployment status">
+          <div><strong>Cost posture</strong><p>Only Amplify Hosting is enabled. No optional service calls are made. Hosting remains usage-based and is checked against the provided $100 signup credit before any expansion.</p></div>
+          <div><strong>Deployment verified</strong><p>Amplify app <code>d38i1t194jgpzt</code> · verified baseline job <code>16</code> · Sydney (<code>ap-southeast-2</code>) · 29 Oct 2026. <a href="https://production.d38i1t194jgpzt.amplifyapp.com/" target="_blank" rel="noreferrer">Open the live deployment</a>.</p></div>
+        </aside>
+
+        <nav class="architecture-next" aria-label="Page navigation">
+          <a class="button" href="focus.html">Return to FocusTube</a>
+          <a class="button button--primary" href="contact.html">Continue to contact</a>
+        </nav>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
