@@ -60,6 +60,9 @@ assert.match(html, /microsoftedge\.microsoft\.com\/addons\/detail\/cjhibbneibhhc
 assert.match(html, /brand__short/);
 assert.match(css, /overflow-x: clip/);
 assert.match(html, /nalanda-courtyard-hero\.webp/);
+assert.match(html, /I build systems<br> that survive\./);
+assert.match(html, /Projects, failures and lessons—recovered and preserved\./);
+assert.doesNotMatch(css, /scroll-snap/, 'Portfolio pages must use normal vertical scrolling.');
 assert.match(html, /anmol-portrait\.webp/);
 assert.match(html, /keeper-mini-ancient\.webp/);
 assert.match(html, /keeper-mini-ancient\.webp" alt="" width="1122" height="1402"/);
@@ -185,7 +188,7 @@ assert.match(contactJs, /data-contact-portrait/);
 assert.match(contactJs, /data-contact-desk/);
 assert.match(contactJs, /matchMedia/);
 assert.match(html, /href="mailto:anmolpatel2112@gmail\.com"/);
-assert.match(html, /systems<br> that survive change/);
+assert.match(html, /systems<br> that survive\./);
 assert.doesNotMatch(html, /<script[^>]+src="https?:/);
 assert.doesNotMatch(html, /♙/);
 assert.doesNotMatch(html + css, /nalanda-courtyard-hero\.png|anmol-portrait\.png/);

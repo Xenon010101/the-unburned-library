@@ -67,7 +67,6 @@ img { max-width: 100%; display: block; }
 .hero h1 { max-width: 720px; margin: 1.1rem 0 1.25rem; font-size: clamp(3.2rem, 7.5vw, 7.2rem); }
 .hero__lede { max-width: 590px; font-size: clamp(1.1rem, 2vw, 1.45rem); color: #e4ded2; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2rem; }
-.context-note { max-width: 520px; margin-top: 1.5rem; color: var(--muted); font-size: .82rem; }
 
 .brick-stage { --brick-width: 260px; --brick-height: 113px; --brick-depth: 108px; position: absolute; z-index: 2; top: 38%; right: max(4vw, calc((100% - 1320px) / 2)); width: min(36vw, 520px); height: 47%; perspective: 740px; perspective-origin: 76% 22%; transform-style: preserve-3d; pointer-events: none; }
 .brick-stage__callout { position: absolute; top: -2.2rem; right: 0; width: 200px; padding: .7rem .9rem; color: var(--ivory); background: rgba(16, 11, 8, .78); border: 1px solid var(--line); border-radius: 10px; font-size: .85rem; }
@@ -290,7 +289,6 @@ dialog::backdrop { background: rgba(5,3,2,.82); backdrop-filter: blur(5px); }
   .hero h1 br { display: none; }
   .hero__actions { display: grid; }
   .button { width: 100%; }
-  .context-note { font-size: .72rem; }
   .brick-stage { --brick-width: min(78vw, 320px); --brick-height: min(34vw, 139px); --brick-depth: 66px; top: 61%; }
   .recover-brick, .brick-stage__cavity { right: 50%; transform: translateX(50%); }
   .brick-webgl { width: min(126vw, 480px); height: min(82vw, 310px); }
