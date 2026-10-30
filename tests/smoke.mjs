@@ -124,7 +124,8 @@ assert.equal((focusHtml.match(/<section>\s*<span aria-hidden="true">0[123]<\/spa
 assert.match(focusHtml + focusJs, /assets\/focustube-before\.png/);
 assert.match(focusHtml, /assets\/focustube-after\.png/);
 assert.match(focusHtml, /Public evidence verified/);
-assert.match(focusHtml, /<dt>Manifest<\/dt><dd>V3 · version 1\.1\.0<\/dd>/);
+assert.doesNotMatch(focusHtml + focusCss, /survival-contract/, 'FocusTube must not repeat the recovery decisions.');
+assert.match(focusHtml, /<dt>Manifest<\/dt><dd>V3 · 1\.1\.0<\/dd>/);
 assert.match(focusHtml, /<code>storage<\/code> · <code>activeTab<\/code>/);
 assert.match(focusHtml, /https:\/\/github\.com\/Xenon010101\/FocusTube/);
 assert.match(focusHtml, /microsoftedge\.microsoft\.com\/addons\/detail\/cjhibbneibhhcjiiekbhfgiilhijgibo/);

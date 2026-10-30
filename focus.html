@@ -48,7 +48,7 @@
         <header class="record-intro">
           <p data-record-copy>Recovered record 01 · FocusTube</p>
           <h1 id="focus-record-title" data-record-copy>The interface kept rebuilding itself.</h1>
-          <p data-record-copy>YouTube replaced sections of the page during navigation. Hiding distractions once was not enough.</p>
+          <p data-record-copy>YouTube rebuilds the page during navigation, erasing one-time fixes.</p>
         </header>
 
         <article class="manuscript" data-manuscript>
@@ -59,15 +59,15 @@
             <div class="record-layers" aria-label="Engineering recovery sequence">
               <section>
                 <span aria-hidden="true">01</span>
-                <div><h2>What broke</h2><p>Dynamic navigation replaced interface elements and erased the focus state.</p></div>
+                <div><h2>What broke</h2><p>Navigation replaced the focused interface.</p></div>
               </section>
               <section>
                 <span aria-hidden="true">02</span>
-                <div><h2>What I changed</h2><p>A MutationObserver and YouTube navigation events reapply the experience after every transition.</p></div>
+                <div><h2>What I changed</h2><p>Navigation events and a MutationObserver restore it.</p></div>
               </section>
               <section>
                 <span aria-hidden="true">03</span>
-                <div><h2>What survived</h2><p>Video playback, user control, focus preferences and privacy.</p></div>
+                <div><h2>What survived</h2><p>Playback, preferences and privacy.</p></div>
               </section>
             </div>
 
@@ -75,7 +75,7 @@
               <div class="evidence-study__heading">
                 <div>
                   <p>Recovered evidence</p>
-                  <h2 id="evidence-title">The same page, with control restored.</h2>
+                  <h2 id="evidence-title">Control restored.</h2>
                 </div>
                 <div class="evidence-toggle" role="group" aria-label="Preview state">
                   <button type="button" aria-pressed="false" data-preview="before">Before</button>
@@ -88,31 +88,22 @@
                   <img src="assets/focustube-after.png" alt="YouTube watch page after FocusTube removes surrounding distractions while preserving the video player" width="1917" height="966" data-preview-image>
                   <div class="browser-study__caption">
                     <strong data-preview-title>Focus mode active</strong>
-                    <p data-preview-caption>After: the player remains while recommendations, comments and navigation clutter are removed.</p>
+                    <p data-preview-caption>After: the player remains; distractions disappear.</p>
                   </div>
                 </div>
 
                 <div class="evidence-proof">
                   <ol class="recovery-flow" aria-label="Recovery implementation">
-                    <li><span>DOM change</span><small>YouTube replaces interface regions.</small></li>
-                    <li><span>Detect</span><small>Mutation and navigation signals wait for the render burst.</small></li>
-                    <li><span>Restore</span><small>Player, hidden regions and saved tab state are reapplied.</small></li>
+                    <li><span>DOM change</span><small>YouTube replaces regions.</small></li>
+                    <li><span>Detect</span><small>Signals wait for rendering.</small></li>
+                    <li><span>Restore</span><small>Focus and tab state return.</small></li>
                   </ol>
                   <dl class="verified-specs">
-                    <div><dt>Manifest</dt><dd>V3 · version 1.1.0</dd></div>
+                    <div><dt>Manifest</dt><dd>V3 · 1.1.0</dd></div>
                     <div><dt>Permissions</dt><dd><code>storage</code> · <code>activeTab</code></dd></div>
-                    <div><dt>Runtime</dt><dd>No build step · no third-party dependencies</dd></div>
-                    <div><dt>State</dt><dd>Synced preference · per-tab session state</dd></div>
+                    <div><dt>Runtime</dt><dd>No build · no dependencies</dd></div>
+                    <div><dt>State</dt><dd>Synced · per-tab</dd></div>
                   </dl>
-                  <section class="survival-contract" aria-labelledby="survival-contract-title">
-                    <p>Constraint ledger</p>
-                    <h3 id="survival-contract-title">The survival contract</h3>
-                    <ul>
-                      <li><code>Observe</code><span>React to page replacement without polling the network.</span></li>
-                      <li><code>Restore</code><span>Reapply only the focus state the visitor selected.</span></li>
-                      <li><code>Contain</code><span>Keep execution browser-only with no account or backend.</span></li>
-                    </ul>
-                  </section>
                 </div>
               </div>
             </section>
@@ -124,7 +115,7 @@
         </article>
 
         <aside class="evidence-warning evidence-warning--verified" aria-label="Evidence status">
-          <div><strong>Public evidence verified</strong><p>Repository screenshots, source code and the Edge Add-ons destination were checked on October 29, 2026. No usage metrics are claimed.</p></div>
+          <div><strong>Public evidence verified</strong><p>Source, screenshots and the Edge listing were checked October 29, 2026. No usage claims.</p></div>
           <div class="evidence-links">
             <a href="https://github.com/Xenon010101/FocusTube" target="_blank" rel="noreferrer">View source</a>
             <a href="https://microsoftedge.microsoft.com/addons/detail/cjhibbneibhhcjiiekbhfgiilhijgibo" target="_blank" rel="noreferrer">Install for Edge</a>

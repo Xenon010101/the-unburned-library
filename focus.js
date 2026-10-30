@@ -17,13 +17,13 @@ const previewStates = {
     title: 'Before focus mode',
     source: 'assets/focustube-before.png',
     alt: 'YouTube watch page before FocusTube, with recommendations, navigation, metadata and the extension popup visible',
-    caption: 'Before: the video competes with recommendations, comments, navigation and metadata.'
+    caption: 'Before: the video competes with page clutter.'
   },
   after: {
     title: 'Focus mode active',
     source: 'assets/focustube-after.png',
     alt: 'YouTube watch page after FocusTube removes surrounding distractions while preserving the video player',
-    caption: 'After: the player remains while recommendations, comments and navigation clutter are removed.'
+    caption: 'After: the player remains; distractions disappear.'
   }
 };
 
