@@ -25,6 +25,12 @@ const setBrickStatus = (message) => {
 };
 
 const showRecord = () => {
+  if (recoveryTrigger === brick) {
+    setBrickStatus('Record recovered. Opening the full FocusTube case study.');
+    window.location.assign('focus.html');
+    return;
+  }
+
   if (!recordDialog || recordDialog.open) return;
 
   const shouldAnimate = animation && !reducedMotion.matches && folio;

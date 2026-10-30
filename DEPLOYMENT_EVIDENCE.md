@@ -28,6 +28,7 @@ Verified on 30 October 2026 (Asia/Calcutta).
 - Responsive-copy-fix job: `20`: `SUCCEED` (17:29:56–17:30:05 IST)
 - Em-dash-removal job: `21`: `SUCCEED` (17:43:16–17:43:25 IST)
 - FocusTube-copy-reduction job: `22`: `SUCCEED` (17:59:08–17:59:17 IST)
+- Homepage-brick-routing job: `23`: `SUCCEED` (00:51:30–00:51:39 IST, 31 October)
 - Live URL: https://production.d38i1t194jgpzt.amplifyapp.com/
 - Public verification: Architecture page loaded with all five local official AWS SVGs at non-zero intrinsic dimensions; the Contact page preserved all three verified destinations and fit its desk and portrait inside the 430px viewport with no horizontal overflow
 - Homepage verification: at 430×932, changing reduced motion 120ms into the brick recovery opened the record immediately; Escape closed it, re-enabled the brick and returned focus to the exact trigger with no horizontal overflow
@@ -37,6 +38,7 @@ Verified on 30 October 2026 (Asia/Calcutta).
 - Hero-copy verification: the live 1440×900 and 390×844 layouts render the shortened headline and supporting line without horizontal overflow; the homepage sections and all six standalone pages retain normal content-driven vertical scrolling with no scroll snapping
 - Copy verification: the live homepage, all six standalone pages and the FocusTube interaction script contain no em-dash characters
 - FocusTube verification: the live manuscript keeps its existing unfurl animation, removes the repeated constraint ledger, shortens the recovery copy and has no horizontal overflow at 1440×900 or 390×844
+- Brick-routing verification: the live 3D brick completes its recovery animation and opens `focus.html`; the other homepage recovery buttons retain the existing record dialog
 
 The deployment contains 38 production files in a 2.22 MB ZIP. It includes the pinned Three.js 0.180.0 browser modules and an accessible CSS cuboid fallback. It excludes local tests, QA screenshots, browser profiles, source notes, design references, development dependencies and superseded high-resolution PNG assets. There is no deployed backend, database, authentication service, Lambda function, API Gateway or Bedrock integration.
 

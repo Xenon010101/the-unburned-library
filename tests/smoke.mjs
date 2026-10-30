@@ -42,7 +42,8 @@ for (const page of [html, aboutHtml, skillsHtml, projectsHtml, focusHtml, archit
   assert.match(page, /<link rel="icon" href="assets\/favicon\.svg" type="image\/svg\+xml">/);
 }
 
-assert.match(html, /aria-controls="focus-record"/);
+assert.match(html, /aria-label="Recover FocusTube record 01 and open the full case study"/);
+assert.match(js, /window\.location\.assign\('focus\.html'\)/);
 assert.match(css, /@media \(prefers-reduced-motion: reduce\)/);
 assert.match(css, /@view-transition\s*\{\s*navigation:\s*auto;/);
 assert.match(css, /::view-transition-new\(root\)/);

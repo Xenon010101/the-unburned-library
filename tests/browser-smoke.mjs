@@ -76,6 +76,13 @@ await screenshot('desktop-qa.png');
 await evaluate(`document.querySelector('[data-brick]').click()`);
 await wait(900);
 await screenshot('brick-flight-qa.png');
+await waitFor(`location.pathname.endsWith('/focus.html')`, 7000);
+await screenshot('focus-from-brick-qa.png');
+
+await send('Page.navigate', { url: pageUrl });
+await waitFor(`document.readyState === 'complete' && typeof window.gsap === 'object'`);
+await wait(1400);
+await evaluate(`document.querySelector('[data-recover]').click()`);
 await waitFor(`document.querySelector('[data-record-dialog]').open`, 7000);
 await wait(900);
 assert.match(await evaluate(`document.querySelector('[data-brick-status]').textContent`), /Record recovered/);
