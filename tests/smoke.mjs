@@ -1,8 +1,16 @@
 import assert from 'node:assert/strict';
 import { readFile, stat } from 'node:fs/promises';
 
-const [html, css, js, aboutHtml, aboutCss, aboutJs, skillsHtml, skillsCss, skillsJs, projectsHtml, projectsCss, projectsJs, focusHtml, focusCss, focusJs, architectureHtml, architectureCss, architectureJs, contactHtml, contactCss, contactJs, packageJson, gsapFile, focusBefore, focusAfter, amplifyIcon, cloudFrontIcon, apiGatewayIcon, lambdaIcon, bedrockIcon] = await Promise.all([
+const [shellHtml, shellCss, shellJs, shellGuard, ambientMusic] = await Promise.all([
   readFile(new URL('../index.html', import.meta.url), 'utf8'),
+  readFile(new URL('../site-shell.css', import.meta.url), 'utf8'),
+  readFile(new URL('../site-shell.js', import.meta.url), 'utf8'),
+  readFile(new URL('../site-shell-guard.js', import.meta.url), 'utf8'),
+  stat(new URL('../assets/library-ambient.mp3', import.meta.url))
+]);
+
+const [html, css, js, aboutHtml, aboutCss, aboutJs, skillsHtml, skillsCss, skillsJs, projectsHtml, projectsCss, projectsJs, focusHtml, focusCss, focusJs, architectureHtml, architectureCss, architectureJs, contactHtml, contactCss, contactJs, packageJson, gsapFile, focusBefore, focusAfter, amplifyIcon, cloudFrontIcon, apiGatewayIcon, lambdaIcon, bedrockIcon] = await Promise.all([
+  readFile(new URL('../home.html', import.meta.url), 'utf8'),
   readFile(new URL('../styles.css', import.meta.url), 'utf8'),
   readFile(new URL('../script.js', import.meta.url), 'utf8'),
   readFile(new URL('../about.html', import.meta.url), 'utf8'),
@@ -40,7 +48,19 @@ for (const id of ['main', 'home', 'about', 'skills', 'projects', 'architecture',
 
 for (const page of [html, aboutHtml, skillsHtml, projectsHtml, focusHtml, architectureHtml, contactHtml]) {
   assert.match(page, /<link rel="icon" href="assets\/favicon\.svg" type="image\/svg\+xml">/);
+  assert.match(page, /<script src="site-shell-guard\.js"><\/script>/);
 }
+
+assert.match(shellHtml, /<iframe[^>]+id="site-frame"[^>]+src="home\.html"/);
+assert.match(shellHtml, /<audio[^>]+assets\/library-ambient\.mp3[^>]+loop/);
+assert.match(shellHtml, /data-music-control/);
+assert.match(shellCss, /\.music-control/);
+assert.match(shellCss, /prefers-reduced-motion/);
+assert.match(shellJs, /history\.pushState/);
+assert.match(shellJs, /window\.addEventListener\('popstate'/);
+assert.match(shellJs, /await music\.play\(\)/);
+assert.match(shellGuard, /window\.top !== window\.self/);
+assert.ok(ambientMusic.size > 5_000_000, 'Background music is missing or unexpectedly small.');
 
 assert.match(html, /aria-label="Recover FocusTube record 01 and open the full case study"/);
 assert.match(js, /window\.location\.assign\('focus\.html'\)/);

@@ -30,6 +30,7 @@ Verified on 31 October 2026 (Asia/Calcutta).
 - FocusTube-copy-reduction job: `22`: `SUCCEED` (17:59:08–17:59:17 IST)
 - Homepage-brick-routing job: `23`: `SUCCEED` (00:51:30–00:51:39 IST, 31 October)
 - Architecture-overlay-fix job: `24`: `SUCCEED` (21:56:00–21:56:09 IST, 31 October)
+- Persistent-music job: `25`: `SUCCEED` (22:26:03–22:26:12 IST, 31 October)
 - Live URL: https://production.d38i1t194jgpzt.amplifyapp.com/
 - Public verification: Architecture page loaded with all five local official AWS SVGs at non-zero intrinsic dimensions; the Contact page preserved all three verified destinations and fit its desk and portrait inside the 430px viewport with no horizontal overflow
 - Homepage verification: at 430×932, changing reduced motion 120ms into the brick recovery opened the record immediately; Escape closed it, re-enabled the brick and returned focus to the exact trigger with no horizontal overflow
@@ -41,8 +42,9 @@ Verified on 31 October 2026 (Asia/Calcutta).
 - FocusTube verification: the live manuscript keeps its existing unfurl animation, removes the repeated constraint ledger, shortens the recovery copy and has no horizontal overflow at 1440×900 or 390×844
 - Brick-routing verification: the live 3D brick completes its recovery animation and opens `focus.html`; the other homepage recovery buttons retain the existing record dialog
 - Architecture-overlay verification: the decorative inset remains while its background is transparent, restoring the intended black and bronze blueprint surface
+- Persistent-music verification: the supplied track continued on the same audio element through Home, About and browser Back navigation without pausing or resetting
 
-The deployment contains 38 production files in a 2.22 MB ZIP. It includes the pinned Three.js 0.180.0 browser modules and an accessible CSS cuboid fallback. It excludes local tests, QA screenshots, browser profiles, source notes, design references, development dependencies and superseded high-resolution PNG assets. There is no deployed backend, database, authentication service, Lambda function, API Gateway or Bedrock integration.
+The deployment contains 43 production files in a 12.40 MB ZIP. It includes the persistent site shell, the supplied ambient track, the pinned Three.js 0.180.0 browser modules and an accessible CSS cuboid fallback. It excludes local tests, QA screenshots, browser profiles, source notes, design references, development dependencies and superseded high-resolution PNG assets. There is no deployed backend, database, authentication service, Lambda function, API Gateway or Bedrock integration.
 
 ## Repeatable update flow
 

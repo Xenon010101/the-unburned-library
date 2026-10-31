@@ -4,7 +4,7 @@ import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
 const port = process.argv[2] || '9223';
-const pageUrl = pathToFileURL(resolve('index.html')).href;
+const pageUrl = pathToFileURL(resolve('home.html')).href;
 const aboutUrl = pathToFileURL(resolve('about.html')).href;
 const skillsUrl = pathToFileURL(resolve('skills.html')).href;
 const projectsUrl = pathToFileURL(resolve('projects.html')).href;
