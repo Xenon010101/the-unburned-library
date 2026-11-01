@@ -54,11 +54,21 @@ for (const page of [html, aboutHtml, skillsHtml, projectsHtml, focusHtml, archit
 assert.match(shellHtml, /<iframe[^>]+id="site-frame"[^>]+src="home\.html"/);
 assert.match(shellHtml, /<audio[^>]+assets\/library-ambient\.mp3[^>]+loop/);
 assert.match(shellHtml, /data-music-control/);
+assert.match(shellHtml, /data-xray-control/);
+assert.match(shellHtml, /data-xray-overlay/);
+assert.equal((shellHtml.match(/data-xray-box=/g) || []).length, 5, 'X-ray mode must map five real homepage regions.');
 assert.match(shellCss, /\.music-control/);
+assert.match(shellCss, /body\.xray-active \.xray-overlay/);
+assert.match(shellCss, /\.xray-box--brick/);
+assert.match(shellCss, /\.xray-control\[hidden\]\s*\{\s*display:\s*none;/);
 assert.match(shellCss, /prefers-reduced-motion/);
 assert.match(shellJs, /history\.pushState/);
 assert.match(shellJs, /window\.addEventListener\('popstate'/);
 assert.match(shellJs, /await music\.play\(\)/);
+assert.match(shellJs, /const setXrayState/);
+assert.match(shellJs, /brick: '\[data-brick\]'/);
+assert.match(shellJs, /event\.key\.toLowerCase\(\) === 'x'/);
+assert.match(shellJs, /queueXrayGeometry/);
 assert.match(shellGuard, /window\.top !== window\.self/);
 assert.ok(ambientMusic.size > 5_000_000, 'Background music is missing or unexpectedly small.');
 

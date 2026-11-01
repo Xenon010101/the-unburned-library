@@ -13,12 +13,42 @@
 <body>
   <iframe class="site-frame" id="site-frame" name="site-frame" src="home.html" title="The Unburned Library portfolio"></iframe>
 
-  <button class="music-control" type="button" aria-pressed="false" aria-label="Play background music" data-music-control>
-    <span class="music-control__seal" aria-hidden="true">
-      <i></i><i></i><i></i>
-    </span>
-    <span data-music-label>Music off</span>
-  </button>
+  <div class="xray-overlay" aria-hidden="true" data-xray-overlay>
+    <div class="xray-overlay__grid"></div>
+    <div class="xray-overlay__frame"></div>
+    <p class="xray-mode-flag"><strong>X-RAY MODE ON</strong><span>PRESS X TO EXIT</span></p>
+    <div class="xray-box xray-box--header" data-xray-box="header"><span>HEADER · SEMANTIC LANDMARK</span></div>
+    <div class="xray-box xray-box--nav" data-xray-box="nav"><span>NAV · 5 ROUTES</span></div>
+    <div class="xray-box xray-box--hero" data-xray-box="hero"><span>LAYER 01 · SEMANTIC HTML</span></div>
+    <div class="xray-box xray-box--title" data-xray-box="title"><span>H1.HERO-TITLE</span></div>
+    <div class="xray-box xray-box--brick" data-xray-box="brick">
+      <span>LAYER 02 · THREE.JS CUBOID</span>
+      <i class="xray-axis xray-axis--x">X</i>
+      <i class="xray-axis xray-axis--y">Y</i>
+      <i class="xray-axis xray-axis--z">Z</i>
+    </div>
+    <div class="xray-timeline" aria-hidden="true">
+      <strong>LAYER 03 · GSAP TIMELINE</strong>
+      <span><i></i>RESPOND</span><span><i></i>FALL</span><span><i></i>REVEAL</span>
+    </div>
+    <p class="xray-runtime">AWS AMPLIFY · AP-SOUTHEAST-2</p>
+    <p class="xray-viewport" data-xray-viewport></p>
+  </div>
+
+  <div class="shell-controls">
+    <button class="xray-control" type="button" aria-pressed="false" aria-label="Turn on engineering X-ray mode" data-xray-control>
+      <span class="xray-control__lens" aria-hidden="true"></span>
+      <span data-xray-label>X-Ray off</span>
+      <kbd>X</kbd>
+    </button>
+    <button class="music-control" type="button" aria-pressed="false" aria-label="Play background music" data-music-control>
+      <span class="music-control__seal" aria-hidden="true">
+        <i></i><i></i><i></i>
+      </span>
+      <span data-music-label>Music off</span>
+    </button>
+  </div>
+  <p class="visually-hidden" aria-live="polite" data-xray-status></p>
   <p class="visually-hidden" aria-live="polite" data-music-status></p>
 
   <audio data-site-music src="assets/library-ambient.mp3" preload="metadata" loop></audio>
