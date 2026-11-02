@@ -163,6 +163,8 @@ await evaluate(`document.querySelector('[data-project="arogya"]').click()`);
 await waitFor(`document.querySelector('[data-project-title]').textContent === 'ArogyaAI'`);
 await wait(500);
 assert.match(await evaluate(`document.querySelector('[data-project-evidence-title]').textContent`), /pending/);
+assert.match(await evaluate(`document.querySelector('[data-project-system]').textContent`), /Gemini-assisted summary/);
+assert.match(await evaluate(`document.querySelector('[data-project-boundary]').textContent`), /does not diagnose/);
 assert.equal(await evaluate(`document.querySelector('[data-project-link]').hidden`), true);
 assert.equal(await evaluate(`getComputedStyle(document.querySelector('[data-project-link]')).display`), 'none');
 await screenshot('projects-arogya-qa.png');
@@ -180,6 +182,8 @@ await send('Page.reload', { ignoreCache: true });
 await waitFor(`document.readyState === 'complete' && matchMedia('(prefers-reduced-motion: reduce)').matches`);
 await evaluate(`document.querySelector('[data-project="insider"]').click()`);
 assert.equal(await evaluate(`document.querySelector('[data-project-title]').textContent`), 'InsiderEdge');
+assert.match(await evaluate(`document.querySelector('[data-project-system]').textContent`), /paper trades/);
+assert.match(await evaluate(`document.querySelector('[data-project-boundary]').textContent`), /static visual demo/);
 assert.equal(await evaluate(`getComputedStyle(document.querySelector('[data-project-link]')).display`), 'none');
 await send('Emulation.setEmulatedMedia', { features: [] });
 

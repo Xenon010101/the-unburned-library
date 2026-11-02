@@ -17,6 +17,8 @@ const records = {
     broke: 'YouTube’s single-page navigation replaced interface regions and erased the focus state.',
     changed: 'A MutationObserver, navigation signals and per-tab session state restore the experience after transitions.',
     survived: 'Playback, user control, preferences and privacy survive without an account or backend.',
+    system: 'Navigation signal, DOM observer, then restored focus state.',
+    boundary: 'Browser-only. No account, analytics, remote code or backend.',
     tags: ['JavaScript', 'Browser extension', 'Privacy'], kind: 'focus', glyph: '◉',
     caption: 'Focused learning interface', label: 'Verified interface capture',
     image: 'assets/focustube-after.png',
@@ -28,24 +30,28 @@ const records = {
   },
   arogya: {
     status: 'Provisional record 02', title: 'ArogyaAI',
-    summary: 'A health-report interpretation workflow with explicit safety boundaries.',
-    broke: 'Dense health reports can be difficult to understand without clear context and careful language.',
-    changed: 'The product explores a guided interpretation workflow while limiting what the system is allowed to claim.',
-    survived: 'In high-stakes interfaces, boundaries and uncertainty matter more than confident output.',
-    tags: ['React', 'Node.js', 'MongoDB'], kind: 'health', glyph: '✚',
+    summary: 'A full-stack workflow that turns uploaded health reports into clearer, bounded explanations.',
+    broke: 'Dense report language, fragmented uploads and unconstrained AI summaries made understanding harder and riskier.',
+    changed: 'A React interface and Express API handle image or PDF uploads, authentication, report history and assisted summaries.',
+    survived: 'Deterministic rules and explicit non-diagnostic limits keep uncertainty visible instead of overstating an answer.',
+    system: 'Image or PDF upload, validation, Gemini-assisted summary, deterministic checks, then saved report history.',
+    boundary: 'Explains reports; it does not diagnose, prescribe or replace a clinician. Public product evidence is still pending.',
+    tags: ['React + Vite', 'Express', 'MongoDB'], kind: 'health', glyph: '✚',
     caption: 'Bounded interpretation workflow', label: 'Conceptual workflow study', image: null,
     artifactNote: 'Conceptual cover only. Product screenshots and implementation evidence are not yet admitted to the archive.',
     evidenceTitle: 'Evidence state: pending',
-    evidence: 'Add verified screenshots, repository history, safety behavior and deployment evidence before presenting this as recovered.',
+    evidence: 'The implementation record covers authentication, uploads, summaries, rules, history and health checks. Add public screenshots, repository history and deployed behavior before admission.',
     link: false
   },
   insider: {
     status: 'Collaborative record 03', title: 'InsiderEdge',
-    summary: 'A collaborative market-analysis and paper-trading research platform.',
-    broke: 'Market research, experimentation and simulated trading were spread across disconnected workflows.',
-    changed: 'The team combined research and paper-trading exploration inside one product direction.',
-    survived: 'Collaborative work is credible only when personal ownership and contribution boundaries are explicit.',
-    tags: ['Python', 'Data', 'AI'], kind: 'market', glyph: '↗',
+    summary: 'A collaborative research system for AI-assisted analysis, risk controls and simulated trading.',
+    broke: 'Market analysis, technical indicators, risk rules and paper trades lived in disconnected workflows.',
+    changed: 'The team connected a Python research agent, indicator analysis, risk management, paper trading and on-chain verification.',
+    survived: 'A strong research pipeline still needs a clear line between a visual demo, live integrations and each contributor’s work.',
+    system: 'Market inputs, AI and indicator analysis, risk rules, paper trades, then on-chain verification.',
+    boundary: 'The public dashboard is a static visual demo, not a live agent, exchange connection or wallet. Personal ownership is still being verified.',
+    tags: ['Python', 'Risk systems', 'On-chain'], kind: 'market', glyph: '↗',
     caption: 'Market research workspace', label: 'Conceptual data study', image: null,
     artifactNote: 'Conceptual cover only. Personal ownership and contribution evidence are still being verified.',
     evidenceTitle: 'Evidence state: ownership pending',
@@ -70,6 +76,8 @@ const renderRecord = (record) => {
   setText('[data-project-broke]', record.broke);
   setText('[data-project-changed]', record.changed);
   setText('[data-project-survived]', record.survived);
+  setText('[data-project-system]', record.system);
+  setText('[data-project-boundary]', record.boundary);
   setText('[data-project-evidence-title]', record.evidenceTitle);
   setText('[data-project-evidence]', record.evidence);
   setText('[data-artifact-name]', record.title);
