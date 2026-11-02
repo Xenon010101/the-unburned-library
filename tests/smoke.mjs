@@ -1,12 +1,14 @@
 import assert from 'node:assert/strict';
 import { readFile, stat } from 'node:fs/promises';
 
-const [shellHtml, shellCss, shellJs, shellGuard, ambientMusic] = await Promise.all([
+const [shellHtml, shellCss, shellJs, shellGuard, ambientMusic, brandSeal, favicon] = await Promise.all([
   readFile(new URL('../index.html', import.meta.url), 'utf8'),
   readFile(new URL('../site-shell.css', import.meta.url), 'utf8'),
   readFile(new URL('../site-shell.js', import.meta.url), 'utf8'),
   readFile(new URL('../site-shell-guard.js', import.meta.url), 'utf8'),
-  stat(new URL('../assets/library-ambient.mp3', import.meta.url))
+  stat(new URL('../assets/library-ambient.mp3', import.meta.url)),
+  readFile(new URL('../assets/unburned-seal.svg', import.meta.url), 'utf8'),
+  readFile(new URL('../assets/favicon.svg', import.meta.url), 'utf8')
 ]);
 
 const [html, css, js, aboutHtml, aboutCss, aboutJs, skillsHtml, skillsCss, skillsJs, projectsHtml, projectsCss, projectsJs, focusHtml, focusCss, focusJs, architectureHtml, architectureCss, architectureJs, contactHtml, contactCss, contactJs, packageJson, gsapFile, focusBefore, focusAfter, amplifyIcon, cloudFrontIcon, apiGatewayIcon, lambdaIcon, bedrockIcon] = await Promise.all([
@@ -42,13 +44,14 @@ const [html, css, js, aboutHtml, aboutCss, aboutJs, skillsHtml, skillsCss, skill
   readFile(new URL('../assets/aws-icons/amazon-bedrock.svg', import.meta.url), 'utf8')
 ]);
 
-for (const id of ['main', 'home', 'about', 'skills', 'projects', 'architecture', 'contact', 'focus-record', 'keeper-dialog']) {
+for (const id of ['main', 'home', 'about', 'skills', 'projects', 'architecture', 'contact', 'focus-record']) {
   assert.match(html, new RegExp(`id="${id}"`), `Missing #${id}`);
 }
 
 for (const page of [html, aboutHtml, skillsHtml, projectsHtml, focusHtml, architectureHtml, contactHtml]) {
   assert.match(page, /<link rel="icon" href="assets\/favicon\.svg" type="image\/svg\+xml">/);
   assert.match(page, /<script src="site-shell-guard\.js"><\/script>/);
+  assert.match(page, /<img class="brand__mark" src="assets\/unburned-seal\.svg" alt="" width="48" height="48">/);
 }
 
 assert.match(shellHtml, /<iframe[^>]+id="site-frame"[^>]+src="home\.html"/);
@@ -56,8 +59,16 @@ assert.match(shellHtml, /<audio[^>]+assets\/library-ambient\.mp3[^>]+loop/);
 assert.match(shellHtml, /data-music-control/);
 assert.match(shellHtml, /data-xray-control/);
 assert.match(shellHtml, /data-xray-overlay/);
+assert.match(shellHtml, /data-keeper-open/);
+assert.match(shellHtml, /<dialog class="keeper-dialog" id="keeper-dialog" aria-labelledby="keeper-dialog-title"/);
+assert.match(shellHtml, /role="log"[^>]+data-keeper-log/);
+assert.match(shellHtml, /data-keeper-form/);
+assert.match(shellHtml, /maxlength="180"/);
+assert.equal((shellHtml.match(/data-keeper-prompt=/g) || []).length, 4, 'Keeper must expose four suggested questions.');
 assert.equal((shellHtml.match(/data-xray-box=/g) || []).length, 5, 'X-ray mode must map five real homepage regions.');
 assert.match(shellCss, /\.music-control/);
+assert.match(shellCss, /\.keeper-launch/);
+assert.match(shellCss, /\.keeper-dialog/);
 assert.match(shellCss, /body\.xray-active \.xray-overlay/);
 assert.match(shellCss, /\.xray-box--brick/);
 assert.match(shellCss, /\.xray-control\[hidden\]\s*\{\s*display:\s*none;/);
@@ -69,8 +80,15 @@ assert.match(shellJs, /const setXrayState/);
 assert.match(shellJs, /brick: '\[data-brick\]'/);
 assert.match(shellJs, /event\.key\.toLowerCase\(\) === 'x'/);
 assert.match(shellJs, /queueXrayGeometry/);
+assert.match(shellJs, /const keeperRecords = \[/);
+assert.equal((shellJs.match(/matches: \//g) || []).length, 7, 'Keeper must cover seven verified intent groups.');
+assert.match(shellJs, /copy\.textContent = text/);
+assert.doesNotMatch(shellJs, /keeper[^\n]*innerHTML|innerHTML[^\n]*keeper/i, 'Keeper answers must not inject HTML.');
 assert.match(shellGuard, /window\.top !== window\.self/);
 assert.ok(ambientMusic.size > 5_000_000, 'Background music is missing or unexpectedly small.');
+assert.match(brandSeal, /aria-labelledby="seal-title"/);
+assert.match(brandSeal, /Preserved folio and flame seal/);
+assert.match(favicon, /#ffd879/i);
 
 assert.match(html, /aria-label="Recover FocusTube record 01 and open the full case study"/);
 assert.match(js, /window\.location\.assign\('focus\.html'\)/);
@@ -80,10 +98,6 @@ assert.match(css, /::view-transition-new\(root\)/);
 assert.match(js, /prefers-reduced-motion/);
 assert.match(js, /showModal\(\)/);
 assert.match(js, /animation\.timeline/);
-assert.match(js, /const keeperRecords = \[/);
-assert.equal((js.match(/matches: \//g) || []).length, 7, 'Keeper must cover seven verified intent groups.');
-assert.match(js, /copy\.textContent = text/);
-assert.doesNotMatch(js, /keeper[^\n]*innerHTML|innerHTML[^\n]*keeper/i, 'Keeper answers must not inject HTML.');
 assert.match(js, /animation\.matchMedia/);
 assert.match(js, /reducedMotion\.addEventListener\('change'/);
 assert.match(js, /let recoveryTrigger/);
@@ -99,16 +113,9 @@ assert.match(html, /I build systems<br> that survive\./);
 assert.match(html, /Projects, failures and lessons, recovered and preserved\./);
 assert.doesNotMatch(css, /scroll-snap/, 'Portfolio pages must use normal vertical scrolling.');
 assert.match(html, /anmol-portrait\.webp/);
-assert.match(html, /keeper-mini-ancient\.webp/);
-assert.match(html, /keeper-mini-ancient\.webp" alt="" width="1122" height="1402"/);
 assert.match(html, /<dialog class="record-dialog" id="focus-record" aria-labelledby="focus-record-title"/);
 assert.match(html, /id="focus-record-title"/);
-assert.match(html, /<dialog class="keeper-dialog" id="keeper-dialog" aria-labelledby="keeper-dialog-title"/);
-assert.match(html, /id="keeper-dialog-title"/);
-assert.match(html, /role="log"[^>]+data-keeper-log/);
-assert.match(html, /data-keeper-form/);
-assert.match(html, /maxlength="180"/);
-assert.equal((html.match(/data-keeper-prompt=/g) || []).length, 4, 'Keeper must expose four suggested questions.');
+assert.doesNotMatch(html, /data-keeper-open|data-keeper-dialog/, 'Keeper must be owned by the persistent site shell.');
 assert.match(html, /href="about\.html"/);
 assert.match(html, /href="skills\.html"/);
 assert.match(html, /href="projects\.html"/);
@@ -170,6 +177,7 @@ assert.match(focusHtml, /https:\/\/github\.com\/Xenon010101\/FocusTube/);
 assert.match(focusHtml, /microsoftedge\.microsoft\.com\/addons\/detail\/cjhibbneibhhcjiiekbhfgiilhijgibo/);
 assert.match(focusHtml, /xenon010101\.github\.io\/FocusTube\/PRIVACY\.html/);
 assert.match(focusCss, /\.manuscript__roller/);
+assert.match(focusCss, /\.browser-study\s*>\s*img\s*\{[^}]*height:\s*auto;/s);
 assert.match(focusCss, /@media \(prefers-reduced-motion: reduce\)/);
 assert.match(focusJs, /previewStates/);
 assert.match(focusJs, /scaleX: \.035/);

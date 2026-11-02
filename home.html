@@ -19,10 +19,7 @@
 
   <header class="site-header" data-header>
     <a class="brand" href="#home" aria-label="The Unburned Library, home">
-      <svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true">
-        <circle cx="24" cy="24" r="21"></circle>
-        <path d="M24 39V14m0 8-9-7m9 13 11-9M17 34l7-7m7 7-7-7M16 12l8 7 8-8"></path>
-      </svg>
+      <img class="brand__mark" src="assets/unburned-seal.svg" alt="" width="48" height="48">
       <span class="brand__full">The Unburned Library</span>
       <span class="brand__short">Unburned Library</span>
     </a>
@@ -75,12 +72,6 @@
         <p class="visually-hidden" role="status" aria-live="polite" data-brick-status></p>
       </div>
 
-      <button class="keeper-launch" type="button" aria-controls="keeper-dialog" data-keeper-open>
-        <span class="keeper-launch__figure" aria-hidden="true">
-          <img src="assets/keeper-mini-ancient.webp" alt="" width="1122" height="1402">
-        </span>
-        <span>Ask the Keeper</span>
-      </button>
     </section>
 
     <section class="about archive-preview archive-preview--builder section page-shell" id="about" aria-labelledby="about-title">
@@ -229,39 +220,5 @@
     </article>
   </dialog>
 
-  <dialog class="keeper-dialog" id="keeper-dialog" aria-labelledby="keeper-dialog-title" data-keeper-dialog>
-    <div class="keeper-dialog__frame">
-      <aside class="keeper-dialog__keeper" aria-hidden="true">
-        <span class="keeper-dialog__halo"></span>
-        <img src="assets/keeper-mini-ancient.webp" alt="" width="1122" height="1402">
-        <p><span>THE KEEPER</span>Guided by preserved records</p>
-      </aside>
-      <section class="keeper-dialog__manuscript">
-        <form method="dialog" class="keeper-dialog__header">
-          <div><small>Archive consultation · folio 01</small><strong id="keeper-dialog-title">Ask the Keeper</strong></div>
-          <button type="submit" aria-label="Close Keeper">Close</button>
-        </form>
-        <div class="keeper-dialog__body" role="log" aria-live="polite" aria-relevant="additions" data-keeper-log>
-          <article class="keeper-message" data-speaker="keeper">
-            <span class="keeper-message__speaker">Keeper</span>
-            <p>I can guide you through Anmol’s verified work, the Nalanda inspiration and the AWS delivery route.</p>
-            <a href="projects.html">Open the project archive</a>
-          </article>
-        </div>
-        <div class="keeper-dialog__prompts" aria-label="Suggested questions">
-          <button type="button" data-keeper-prompt="What broke in FocusTube?">What broke in FocusTube?</button>
-          <button type="button" data-keeper-prompt="Why Nalanda?">Why Nalanda?</button>
-          <button type="button" data-keeper-prompt="How is this hosted?">How is this hosted?</button>
-          <button type="button" data-keeper-prompt="What can Anmol build?">What can Anmol build?</button>
-        </div>
-        <form class="keeper-dialog__composer" data-keeper-form>
-          <label class="visually-hidden" for="keeper-question">Ask the Keeper about Anmol’s portfolio</label>
-          <input id="keeper-question" name="question" type="text" maxlength="180" autocomplete="off" placeholder="Ask about the archive" data-keeper-input>
-          <button type="submit">Ask</button>
-        </form>
-        <p class="keeper-dialog__guardrail"><span aria-hidden="true">✦</span> Verified portfolio records · Local answers · No model call</p>
-      </section>
-    </div>
-  </dialog>
 </body>
 </html>
