@@ -32,6 +32,7 @@ Verified on 2 November 2026 (Asia/Calcutta).
 - Architecture-overlay-fix job: `24`: `SUCCEED` (21:56:00–21:56:09 IST, 31 October)
 - Persistent-music job: `25`: `SUCCEED` (22:26:03–22:26:12 IST, 31 October)
 - Homepage-X-Ray job: `26`: `SUCCEED` (01:37:00–01:37:09 IST, 2 November)
+- Local-Keeper-chat job: `27`: `SUCCEED` (23:24:00–23:24:09 IST, 2 November)
 - Live URL: https://production.d38i1t194jgpzt.amplifyapp.com/
 - Public verification: Architecture page loaded with all five local official AWS SVGs at non-zero intrinsic dimensions; the Contact page preserved all three verified destinations and fit its desk and portrait inside the 430px viewport with no horizontal overflow
 - Homepage verification: at 430×932, changing reduced motion 120ms into the brick recovery opened the record immediately; Escape closed it, re-enabled the brick and returned focus to the exact trigger with no horizontal overflow
@@ -45,6 +46,7 @@ Verified on 2 November 2026 (Asia/Calcutta).
 - Architecture-overlay verification: the decorative inset remains while its background is transparent, restoring the intended black and bronze blueprint surface
 - Persistent-music verification: the supplied track continued on the same audio element through Home, About and browser Back navigation without pausing or resetting
 - Homepage-X-Ray verification: the live overlay mapped five non-zero homepage regions, including the 260 × 113 brick; X and Escape toggled the mode, the 390 × 844 layout had no horizontal overflow, dense mobile labels were hidden and the browser reported zero console errors
+- Local-Keeper verification: the live manuscript answered a suggested FocusTube question and a typed AWS cost question with evidence links, rejected an out-of-scope weather question with a bounded fallback, fit its 352px dialog inside a 390px viewport with no horizontal overflow and produced zero browser console errors
 
 The deployment contains 43 production files in a 12.40 MB ZIP. It includes the persistent site shell, the supplied ambient track, the pinned Three.js 0.180.0 browser modules and an accessible CSS cuboid fallback. It excludes local tests, QA screenshots, browser profiles, source notes, design references, development dependencies and superseded high-resolution PNG assets. There is no deployed backend, database, authentication service, Lambda function, API Gateway or Bedrock integration.
 
@@ -57,4 +59,4 @@ The deployment contains 43 production files in a 12.40 MB ZIP. It includes the p
 5. Upload the ZIP to the returned one-time URL and start the deployment job.
 6. Wait for `SUCCEED`, then verify the public homepage and a production asset.
 
-The optional Keeper architecture shown on the site remains a clearly labelled future enhancement and was not deployed.
+The deployed Keeper uses local, evidence-grounded responses and makes no model or API calls. The API Gateway, Lambda and Bedrock route shown on the architecture page remains a clearly labelled future enhancement and was not deployed.
