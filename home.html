@@ -241,16 +241,25 @@
           <div><small>Archive consultation · folio 01</small><strong id="keeper-dialog-title">Ask the Keeper</strong></div>
           <button type="submit" aria-label="Close Keeper">Close</button>
         </form>
-        <div class="keeper-dialog__body" aria-live="polite" data-keeper-answer>
-          <p><span class="keeper-dialog__dropcap">I</span> can guide you through Anmol’s verified work, the Nalanda inspiration and the AWS delivery route.</p>
-          <cite>Choose a preserved question below.</cite>
+        <div class="keeper-dialog__body" role="log" aria-live="polite" aria-relevant="additions" data-keeper-log>
+          <article class="keeper-message" data-speaker="keeper">
+            <span class="keeper-message__speaker">Keeper</span>
+            <p>I can guide you through Anmol’s verified work, the Nalanda inspiration and the AWS delivery route.</p>
+            <a href="projects.html">Open the project archive</a>
+          </article>
         </div>
         <div class="keeper-dialog__prompts" aria-label="Suggested questions">
-          <button type="button" data-question="focus"><span>01</span>Hardest FocusTube problem</button>
-          <button type="button" data-question="nalanda"><span>02</span>Why Nalanda?</button>
-          <button type="button" data-question="aws"><span>03</span>Show the AWS architecture</button>
+          <button type="button" data-keeper-prompt="What broke in FocusTube?">What broke in FocusTube?</button>
+          <button type="button" data-keeper-prompt="Why Nalanda?">Why Nalanda?</button>
+          <button type="button" data-keeper-prompt="How is this hosted?">How is this hosted?</button>
+          <button type="button" data-keeper-prompt="What can Anmol build?">What can Anmol build?</button>
         </div>
-        <p class="keeper-dialog__guardrail"><span aria-hidden="true">✦</span> Evidence-grounded · Sources shown · No invented claims</p>
+        <form class="keeper-dialog__composer" data-keeper-form>
+          <label class="visually-hidden" for="keeper-question">Ask the Keeper about Anmol’s portfolio</label>
+          <input id="keeper-question" name="question" type="text" maxlength="180" autocomplete="off" placeholder="Ask about the archive" data-keeper-input>
+          <button type="submit">Ask</button>
+        </form>
+        <p class="keeper-dialog__guardrail"><span aria-hidden="true">✦</span> Verified portfolio records · Local answers · No model call</p>
       </section>
     </div>
   </dialog>
