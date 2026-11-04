@@ -63,7 +63,7 @@ const keeperRecords = [
   },
   {
     matches: /project|work|github|source|portfolio/i,
-    answer: 'FocusTube is the complete recovered record with public source and a working Edge listing. ArogyaAI and InsiderEdge remain clearly marked as provisional until their ownership and evidence are verified.',
+    answer: 'FocusTube has a complete recovered record and working Edge listing. ArogyaAI has public source, CI and safety boundaries. InsiderEdge has public source, a live paper-mode dashboard and verified primary contribution.',
     source: 'Recovered project archive',
     href: 'projects.html'
   },

@@ -2,6 +2,8 @@
 
 Verified on 2 November 2026 (Asia/Calcutta).
 
+Live recheck: 4 November 2026. The production portfolio was reachable at <https://production.d38i1t194jgpzt.amplifyapp.com/> in the selected Region, `ap-southeast-2`.
+
 - Service: AWS Amplify Hosting, static `WEB` app
 - Region: Sydney (`ap-southeast-2`)
 - App name: `the-unburned-library`

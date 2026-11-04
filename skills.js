@@ -21,22 +21,22 @@ const records = {
     protect: 'User control, clarity and responsive performance.'
   },
   systems: {
-    evidenceLabel: 'Evidence pending',
+    evidenceLabel: 'Public source verified',
     title: 'Backend systems',
     description: 'I connect product behavior to reliable application logic, automation and explicit failure handling.',
     tools: ['Node.js', 'Python', 'REST APIs'],
-    project: 'ArogyaAI · provisional',
-    proof: 'A health-report interpretation workflow designed with clear boundaries around what the system can claim. Implementation evidence is pending.',
+    project: 'ArogyaAI · collaborative',
+    proof: 'A public health-report interpretation workflow with CI, authentic interface evidence and explicit non-diagnostic boundaries.',
     use: 'APIs, server logic, validation and task automation.',
     protect: 'Reliability, understandable errors and safe boundaries.'
   },
   data: {
-    evidenceLabel: 'Contribution pending',
+    evidenceLabel: 'Primary contribution verified',
     title: 'Data',
     description: 'I shape information so products can retrieve it clearly, preserve context and support useful decisions.',
     tools: ['MongoDB', 'MySQL', 'Data modeling'],
-    project: 'InsiderEdge · collaborative',
-    proof: 'A market-analysis research platform where structured data supports exploration and paper-trading workflows. Personal contribution evidence is pending.',
+    project: 'InsiderEdge · primary contributor',
+    proof: 'A public market-analysis research platform with a live paper-mode dashboard and documented work across agent, risk and portfolio logic.',
     use: 'Persistence, querying and application data models.',
     protect: 'Traceability, useful structure and honest interpretation.'
   },

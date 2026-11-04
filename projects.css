@@ -74,7 +74,9 @@
 .project-folio__evidence { padding: .85rem; border: 1px dashed rgba(230,184,95,.4); background: rgba(230,184,95,.05); }
 .project-folio__evidence strong { color: var(--gold-bright); font-size: .76rem; }
 .project-folio__evidence p { margin: .35rem 0 0; color: var(--muted); font-size: .73rem; }
-.project-folio .button { width: auto; margin-top: 1rem; }
+.project-folio__actions { display: flex; align-items: center; flex-wrap: wrap; gap: .9rem; margin-top: 1rem; }
+.project-folio__actions .button { width: auto; }
+.project-folio__actions .text-action { color: var(--gold-bright); }
 
 .archive-next { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-bottom: 1.4rem; }
 .archive-next p { margin: 0; color: var(--muted); font-family: var(--display); }

@@ -7,7 +7,8 @@ const artifactImage = document.querySelector('[data-artifact-image]');
 const artifactPlaceholder = document.querySelector('[data-artifact-placeholder]');
 const artifactNote = document.querySelector('[data-artifact-note]');
 const folio = document.querySelector('[data-project-folio]');
-const projectLink = document.querySelector('[data-project-link]');
+const projectPrimaryLink = document.querySelector('[data-project-primary-link]');
+const projectSourceLink = document.querySelector('[data-project-source-link]');
 let transitionTimeline;
 
 const records = {
@@ -23,40 +24,49 @@ const records = {
     caption: 'Focused learning interface', label: 'Verified interface capture',
     image: 'assets/focustube-after.png',
     imageAlt: 'FocusTube active on a YouTube watch page, preserving the video while removing surrounding distractions',
+    imageWidth: 1917, imageHeight: 966,
     artifactNote: 'Authentic before/after captures and public source evidence live inside the recovered record.',
     evidenceTitle: 'Evidence state: publicly verified',
     evidence: 'Public source, authentic before/after captures and the Edge Add-ons destination are attached to the recovered record.',
-    link: true
+    primaryLink: { label: 'Open recovered record', href: 'focus.html' },
+    sourceLink: { label: 'View source', href: 'https://github.com/Xenon010101/FocusTube' }
   },
   arogya: {
-    status: 'Provisional record 02', title: 'ArogyaAI',
+    status: 'Collaborative record 02', title: 'ArogyaAI',
     summary: 'A full-stack workflow that turns uploaded health reports into clearer, bounded explanations.',
     broke: 'Dense report language, fragmented uploads and unconstrained AI summaries made understanding harder and riskier.',
     changed: 'A React interface and Express API handle image or PDF uploads, authentication, report history and assisted summaries.',
     survived: 'Deterministic rules and explicit non-diagnostic limits keep uncertainty visible instead of overstating an answer.',
     system: 'Image or PDF upload, validation, Gemini-assisted summary, deterministic checks, then saved report history.',
-    boundary: 'Explains reports; it does not diagnose, prescribe or replace a clinician. Public product evidence is still pending.',
+    boundary: 'Informational only, not diagnosis or emergency care. Anmol’s public commits cover the interface and brand redesign, demo deployment and analysis cleanup.',
     tags: ['React + Vite', 'Express', 'MongoDB'], kind: 'health', glyph: '✚',
-    caption: 'Bounded interpretation workflow', label: 'Conceptual workflow study', image: null,
-    artifactNote: 'Conceptual cover only. Product screenshots and implementation evidence are not yet admitted to the archive.',
-    evidenceTitle: 'Evidence state: pending',
-    evidence: 'The implementation record covers authentication, uploads, summaries, rules, history and health checks. Add public screenshots, repository history and deployed behavior before admission.',
-    link: false
+    caption: 'Authenticated analysis dashboard', label: 'Authentic repository capture',
+    image: 'assets/arogya-dashboard.png',
+    imageAlt: 'ArogyaAI dashboard showing health report analysis controls and report history',
+    imageWidth: 1200, imageHeight: 700,
+    artifactNote: 'Authentic dashboard capture from the public repository. Use synthetic data only; the workflow is not medical advice.',
+    evidenceTitle: 'Evidence state: public source verified',
+    evidence: 'Public source, successful CI, authentic screenshots and documented safety boundaries support this collaborative record.',
+    primaryLink: { label: 'View ArogyaAI source', href: 'https://github.com/Xenon010101/ArogyaAI' }
   },
   insider: {
-    status: 'Collaborative record 03', title: 'InsiderEdge',
+    status: 'Primary contributor · record 03', title: 'InsiderEdge',
     summary: 'A collaborative research system for AI-assisted analysis, risk controls and simulated trading.',
     broke: 'Market analysis, technical indicators, risk rules and paper trades lived in disconnected workflows.',
     changed: 'The team connected a Python research agent, indicator analysis, risk management, paper trading and on-chain verification.',
     survived: 'A strong research pipeline still needs a clear line between a visual demo, live integrations and each contributor’s work.',
     system: 'Market inputs, AI and indicator analysis, risk rules, paper trades, then on-chain verification.',
-    boundary: 'The public dashboard is a static visual demo, not a live agent, exchange connection or wallet. Personal ownership is still being verified.',
+    boundary: 'The live dashboard uses deterministic demo data and is not connected to the agent, exchange APIs or a wallet. Co-developed with Akshita.',
     tags: ['Python', 'Risk systems', 'On-chain'], kind: 'market', glyph: '↗',
-    caption: 'Market research workspace', label: 'Conceptual data study', image: null,
-    artifactNote: 'Conceptual cover only. Personal ownership and contribution evidence are still being verified.',
-    evidenceTitle: 'Evidence state: ownership pending',
-    evidence: "Verify Anmol's exact contribution, commits and responsibilities before this record is admitted to the final archive.",
-    link: false
+    caption: 'Paper-trading dashboard', label: 'Live dashboard capture',
+    image: 'assets/insideredge-dashboard.png',
+    imageAlt: 'InsiderEdge paper-trading dashboard with portfolio, risk and market analysis panels',
+    imageWidth: 1200, imageHeight: 700,
+    artifactNote: 'Live dashboard capture. It explicitly labels paper mode and deterministic demo data.',
+    evidenceTitle: 'Evidence state: source and live demo verified',
+    evidence: 'Public source and commit history identify Anmol as the primary contributor. His commits cover the agent, risk and portfolio logic, dashboard deployment and on-chain reliability fixes.',
+    primaryLink: { label: 'Open live dashboard', href: 'https://xenon010101.github.io/InsiderEdge/' },
+    sourceLink: { label: 'View source', href: 'https://github.com/Xenon010101/InsiderEdge' }
   }
 };
 
@@ -67,6 +77,24 @@ const setText = (selector, value) => {
 const resetTransitionState = () => {
   if (!animation) return;
   animation.set([artifact, folio], { clearProps: 'opacity,visibility,transform,willChange' });
+};
+
+const setProjectLink = (link, config) => {
+  link.hidden = !config;
+  if (!config) return;
+  link.href = config.href;
+  link.textContent = config.label;
+  const external = config.href.startsWith('http');
+  link.toggleAttribute('target', external);
+  link.toggleAttribute('rel', external);
+  if (external) {
+    link.target = '_blank';
+    link.rel = 'noreferrer';
+  }
+};
+
+const revealFolio = () => {
+  folio.scrollIntoView({ behavior: reducedMotion.matches ? 'auto' : 'smooth', block: 'start' });
 };
 
 const renderRecord = (record) => {
@@ -90,13 +118,16 @@ const renderRecord = (record) => {
   if (record.image) {
     artifactImage.src = record.image;
     artifactImage.alt = record.imageAlt;
+    artifactImage.width = record.imageWidth;
+    artifactImage.height = record.imageHeight;
   } else {
     artifactImage.removeAttribute('src');
     artifactImage.alt = '';
   }
   document.querySelectorAll('[data-project-tag]').forEach((tag, index) => { tag.textContent = record.tags[index]; });
   artifact.dataset.artifactKind = record.kind;
-  projectLink.hidden = !record.link;
+  setProjectLink(projectPrimaryLink, record.primaryLink);
+  setProjectLink(projectSourceLink, record.sourceLink);
 };
 
 document.querySelectorAll('[data-project]').forEach((button) => {
@@ -111,13 +142,14 @@ document.querySelectorAll('[data-project]').forEach((button) => {
     resetTransitionState();
     if (!animation || reducedMotion.matches) {
       renderRecord(record);
+      revealFolio();
       return;
     }
 
     animation.set([artifact, folio], { willChange: 'transform, opacity' });
     transitionTimeline = animation.timeline({
       defaults: { ease: 'power2.out', overwrite: 'auto' },
-      onComplete: resetTransitionState,
+      onComplete: () => { resetTransitionState(); revealFolio(); },
       onInterrupt: resetTransitionState
     })
       .addLabel('record-change')
@@ -158,4 +190,4 @@ nav?.addEventListener('click', (event) => {
   nav.classList.remove('is-open');
 });
 
-console.assert(artifact && artifactImage && artifactPlaceholder && artifactNote && folio && Object.keys(records).length === 3, 'Project archive must expose three records and their artifact states.');
+console.assert(artifact && artifactImage && artifactPlaceholder && artifactNote && folio && projectPrimaryLink && projectSourceLink && Object.keys(records).length === 3, 'Project archive must expose three records and their artifact states.');

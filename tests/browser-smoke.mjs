@@ -132,7 +132,7 @@ await screenshot('skills-desktop-qa.png');
 await evaluate(`document.querySelector('[data-skill="systems"]').click()`);
 await waitFor(`document.querySelector('[data-skill-title]').textContent === 'Backend systems'`);
 await wait(500);
-assert.equal(await evaluate(`document.querySelector('[data-skill-project]').textContent`), 'ArogyaAI · provisional');
+assert.equal(await evaluate(`document.querySelector('[data-skill-project]').textContent`), 'ArogyaAI · collaborative');
 assert.equal(await evaluate(`document.querySelector('[data-skill="systems"]').getAttribute('aria-pressed')`), 'true');
 await screenshot('skills-system-qa.png');
 
@@ -161,12 +161,15 @@ assert.equal(await evaluate(`document.querySelectorAll('[data-project]').length`
 await screenshot('projects-desktop-qa.png');
 await evaluate(`document.querySelector('[data-project="arogya"]').click()`);
 await waitFor(`document.querySelector('[data-project-title]').textContent === 'ArogyaAI'`);
-await wait(500);
-assert.match(await evaluate(`document.querySelector('[data-project-evidence-title]').textContent`), /pending/);
+await wait(800);
+assert.match(await evaluate(`document.querySelector('[data-project-evidence-title]').textContent`), /public source verified/);
 assert.match(await evaluate(`document.querySelector('[data-project-system]').textContent`), /Gemini-assisted summary/);
-assert.match(await evaluate(`document.querySelector('[data-project-boundary]').textContent`), /does not diagnose/);
-assert.equal(await evaluate(`document.querySelector('[data-project-link]').hidden`), true);
-assert.equal(await evaluate(`getComputedStyle(document.querySelector('[data-project-link]')).display`), 'none');
+assert.match(await evaluate(`document.querySelector('[data-project-boundary]').textContent`), /not diagnosis/);
+assert.equal(await evaluate(`document.querySelector('[data-artifact-image]').getAttribute('src')`), 'assets/arogya-dashboard.png');
+assert.equal(await evaluate(`document.querySelector('[data-project-primary-link]').href`), 'https://github.com/Xenon010101/ArogyaAI');
+assert.equal(await evaluate(`getComputedStyle(document.querySelector('[data-project-primary-link]')).display === 'none'`), false);
+assert.equal(await evaluate(`document.querySelector('[data-project-source-link]').hidden`), true);
+assert.equal(await evaluate(`{ const rect = document.querySelector('[data-project-folio]').getBoundingClientRect(); rect.top < innerHeight && rect.bottom > 0; }`), true);
 await screenshot('projects-arogya-qa.png');
 
 await send('Emulation.setDeviceMetricsOverride', { width: 390, height: 844, deviceScaleFactor: 1, mobile: true });
@@ -183,8 +186,11 @@ await waitFor(`document.readyState === 'complete' && matchMedia('(prefers-reduce
 await evaluate(`document.querySelector('[data-project="insider"]').click()`);
 assert.equal(await evaluate(`document.querySelector('[data-project-title]').textContent`), 'InsiderEdge');
 assert.match(await evaluate(`document.querySelector('[data-project-system]').textContent`), /paper trades/);
-assert.match(await evaluate(`document.querySelector('[data-project-boundary]').textContent`), /static visual demo/);
-assert.equal(await evaluate(`getComputedStyle(document.querySelector('[data-project-link]')).display`), 'none');
+assert.match(await evaluate(`document.querySelector('[data-project-boundary]').textContent`), /deterministic demo data/);
+assert.equal(await evaluate(`document.querySelector('[data-artifact-image]').getAttribute('src')`), 'assets/insideredge-dashboard.png');
+assert.equal(await evaluate(`document.querySelector('[data-project-primary-link]').href`), 'https://xenon010101.github.io/InsiderEdge/');
+assert.equal(await evaluate(`document.querySelector('[data-project-source-link]').href`), 'https://github.com/Xenon010101/InsiderEdge');
+assert.equal(await evaluate(`getComputedStyle(document.querySelector('[data-project-source-link]')).display === 'none'`), false);
 await send('Emulation.setEmulatedMedia', { features: [] });
 
 await send('Emulation.setDeviceMetricsOverride', { width: 1600, height: 1000, deviceScaleFactor: 1, mobile: false });

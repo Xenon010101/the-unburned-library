@@ -7,7 +7,7 @@
 .craft-layout { min-height: calc(100svh - 118px); display: grid; grid-template-columns: minmax(250px, .75fr) minmax(390px, 1.1fr) minmax(290px, .78fr); align-items: center; gap: clamp(1.5rem, 3vw, 3.8rem); padding-top: 7.5rem; padding-bottom: 2.5rem; }
 
 .craft-intro > p:first-child { margin: 0 0 1rem; color: var(--gold); letter-spacing: .1em; }
-.craft-intro h1 { margin: 0; font-family: var(--display); font-size: clamp(3.4rem, 5.4vw, 6rem); font-weight: 500; line-height: .92; letter-spacing: -.04em; text-wrap: balance; }
+.craft-intro h1 { margin: 0; font-family: var(--display); font-size: clamp(3.25rem, 4.8vw, 5.2rem); font-weight: 500; line-height: .92; letter-spacing: -.04em; text-wrap: balance; }
 .craft-intro > p:nth-of-type(2) { max-width: 520px; margin: 1.4rem 0 0; color: #e7dfd2; font-size: 1.08rem; }
 .craft-intro__instruction { max-width: 440px; margin: 1.4rem 0 0; padding-left: 1rem; border-left: 2px solid var(--gold); color: var(--muted); font-size: .83rem; }
 

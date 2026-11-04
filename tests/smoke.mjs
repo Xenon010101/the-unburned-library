@@ -44,6 +44,11 @@ const [html, css, js, aboutHtml, aboutCss, aboutJs, skillsHtml, skillsCss, skill
   readFile(new URL('../assets/aws-icons/amazon-bedrock.svg', import.meta.url), 'utf8')
 ]);
 
+const [arogyaDashboard, insiderDashboard] = await Promise.all([
+  stat(new URL('../assets/arogya-dashboard.png', import.meta.url)),
+  stat(new URL('../assets/insideredge-dashboard.png', import.meta.url))
+]);
+
 for (const id of ['main', 'home', 'about', 'skills', 'projects', 'architecture', 'contact', 'focus-record']) {
   assert.match(html, new RegExp(`id="${id}"`), `Missing #${id}`);
 }
@@ -142,8 +147,9 @@ assert.match(skillsJs, /FocusTube/);
 assert.match(skillsJs, /animation\.timeline/);
 assert.match(skillsJs, /prefers-reduced-motion/);
 assert.match(skillsJs, /evidenceLabel: 'Verified evidence'/);
-assert.match(skillsJs, /evidenceLabel: 'Evidence pending'/);
-assert.match(skillsJs, /evidenceLabel: 'Contribution pending'/);
+assert.match(skillsJs, /evidenceLabel: 'Public source verified'/);
+assert.match(skillsJs, /evidenceLabel: 'Primary contribution verified'/);
+assert.match(skillsCss, /font-size: clamp\(3\.25rem, 4\.8vw, 5\.2rem\)/);
 assert.match(skillsJs, /addLabel\('craft-arrival'/);
 assert.match(skillsJs, /transitionTimeline\?\.kill/);
 assert.match(skillsJs, /clearProps: 'willChange'/);
@@ -151,24 +157,30 @@ assert.equal((projectsHtml.match(/data-project="/g) || []).length, 3, 'Project a
 assert.match(projectsHtml, /Evidence state: publicly verified/);
 assert.match(projectsHtml, /authentic before\/after captures and public source evidence/i);
 assert.match(projectsHtml, /data-archive-ledger/);
-assert.match(projectsHtml, /1 recovered/i);
-assert.match(projectsHtml, /2 awaiting evidence/i);
+assert.match(projectsHtml, /3 documented records/i);
+assert.match(projectsHtml, /public evidence attached/i);
 assert.match(projectsHtml, /data-artifact-image/);
 assert.match(projectsHtml, /assets\/focustube-after\.png/);
 assert.match(projectsCss, /\.archive-drawers/);
 assert.match(projectsCss, /min-width:\s*0/);
 assert.match(projectsJs, /transitionTimeline\?\.kill/);
-assert.match(projectsJs, /Evidence state: ownership pending/);
+assert.match(projectsJs, /Evidence state: public source verified/);
+assert.match(projectsJs, /Evidence state: source and live demo verified/);
 assert.match(projectsJs, /Gemini-assisted summary/);
-assert.match(projectsJs, /static visual demo, not a live agent/);
+assert.match(projectsJs, /deterministic demo data and is not connected to the agent/);
 assert.match(projectsHtml, /data-project-system/);
 assert.match(projectsHtml, /data-project-boundary/);
 assert.match(projectsCss, /\.project-folio__notes/);
 assert.match(projectsJs, /addLabel\('record-change'/);
 assert.match(projectsJs, /clearProps: 'opacity,visibility,transform,willChange'/);
 assert.match(projectsJs, /transitionTimeline\?\.kill\(\);\s*resetTransitionState\(\);/);
-assert.equal((projectsJs.match(/link: false/g) || []).length, 2, 'Only the verified FocusTube record may expose a case-study link.');
 assert.match(projectsJs, /image: 'assets\/focustube-after\.png'/);
+assert.match(projectsJs, /image: 'assets\/arogya-dashboard\.png'/);
+assert.match(projectsJs, /image: 'assets\/insideredge-dashboard\.png'/);
+assert.match(projectsJs, /scrollIntoView/);
+assert.match(projectsJs, /https:\/\/github\.com\/Xenon010101\/ArogyaAI/);
+assert.match(projectsJs, /https:\/\/xenon010101\.github\.io\/InsiderEdge\//);
+assert.match(projectsJs, /https:\/\/github\.com\/Xenon010101\/InsiderEdge/);
 assert.match(projectsHtml, /href="focus\.html"/);
 assert.match(focusHtml, /id="focus-record-title"/);
 assert.equal((focusHtml.match(/<section>\s*<span aria-hidden="true">0[123]<\/span>/g) || []).length, 3, 'FocusTube record must expose three recovery layers.');
@@ -203,11 +215,12 @@ assert.equal((architectureHtml.match(/data-deployment-fact/g) || []).length, 4, 
 assert.match(architectureHtml, /Not deployed/);
 assert.match(architectureHtml, /Deployment verified/);
 assert.match(architectureHtml, /<dt>Platform<\/dt><dd>WEB<\/dd>/);
-assert.match(architectureHtml, /verified baseline job <code>16<\/code>/);
+assert.match(architectureHtml, /live verified 4 Nov 2026/);
 assert.match(architectureHtml, /No optional service calls/i);
 assert.match(architectureHtml, /Static package[\s\S]*AWS Amplify Hosting[\s\S]*Amplify global CDN[\s\S]*Visitor/);
 assert.match(architectureHtml, /Official AWS Architecture Icons · Q3 2026/);
-assert.match(architectureHtml, /<dt>Verified baseline<\/dt><dd>Job 16 · SUCCEED<\/dd>/);
+assert.match(architectureHtml, /<dt>Live verification<\/dt><dd>4 Nov 2026 · REACHABLE<\/dd>/);
+assert.match(architectureHtml, /github\.com\/Xenon010101\/the-unburned-library/);
 assert.doesNotMatch(architectureHtml, /Always available|budget alert|guaranteed (?:zero cost|free)/i);
 assert.match(architectureHtml, /production\.d38i1t194jgpzt\.amplifyapp\.com/);
 assert.match(architectureHtml, /ap-southeast-2/);
@@ -222,7 +235,7 @@ assert.match(architectureJs, /animation\.matchMedia/);
 assert.match(architectureJs, /document\.querySelectorAll\('\.site-header, \[data-architecture-copy\],/);
 assert.match(architectureJs, /clearProps: 'opacity,visibility,transform,willChange'/);
 assert.match(architectureHtml, /href="contact\.html"/);
-assert.match(contactHtml, /href="https:\/\/github\.com\/Xenon010101"/);
+assert.match(contactHtml, /href="https:\/\/github\.com\/Xenon010101\/the-unburned-library"/);
 assert.match(contactHtml, /href="https:\/\/www\.linkedin\.com\/in\/anmol-patel-481b54289"/);
 assert.match(contactHtml, /href="mailto:anmolpatel2112@gmail\.com"/);
 assert.match(contactHtml, /anmolpatel2112@gmail\.com/);
@@ -230,6 +243,7 @@ assert.match(contactHtml, /data-contact-desk/);
 assert.match(contactHtml, /assets\/anmol-portrait-transparent\.webp/);
 assert.match(contactHtml, /class="contact-letter"/);
 assert.match(contactHtml, /Direct correspondence/);
+assert.match(contactHtml, /github\.com\/Xenon010101\/the-unburned-library/);
 assert.match(contactHtml, /No form\. Nothing stored\./);
 assert.doesNotMatch(contactHtml, /<form/i);
 assert.match(contactCss, /\.contact-portrait__frame/);
@@ -249,5 +263,7 @@ assert.equal(packageJson.dependencies.gsap, '3.15.0');
 assert.ok(gsapFile.size > 50_000 && gsapFile.size < 100_000, 'Unexpected GSAP bundle size.');
 assert.ok(focusBefore.size > 500_000, 'Before screenshot is missing or unexpectedly small.');
 assert.ok(focusAfter.size > 150_000, 'After screenshot is missing or unexpectedly small.');
+assert.ok(arogyaDashboard.size > 100_000, 'ArogyaAI evidence screenshot is missing or unexpectedly small.');
+assert.ok(insiderDashboard.size > 100_000, 'InsiderEdge evidence screenshot is missing or unexpectedly small.');
 
 console.log('Static smoke checks passed.');
